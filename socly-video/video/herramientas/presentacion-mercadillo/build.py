@@ -20,9 +20,9 @@ OUT = V + "anuncios/presentacion-mercadillo/presentacion-mercadillo-" + ("con-ap
 WORK = "/home/user/prueba/socly-video/trabajo/nuevo/work"
 os.makedirs(WORK, exist_ok=True)
 W, H, FPS, SR = 1080, 1920, 30, 48000
-FONT = "/usr/share/fonts/opentype/inter/Inter-Bold.otf"
-SERIF = "/usr/share/fonts/truetype/dejavu/DejaVuSerif-Bold.ttf"
-SERIF_I = "/usr/share/fonts/truetype/dejavu/DejaVuSerif-Bold.ttf"
+FONT = "C:/Windows/Fonts/ArialNova-Bold.ttf"
+SERIF = "C:/Windows/Fonts/georgiab.ttf"
+SERIF_I = "C:/Windows/Fonts/georgiaz.ttf"
 TM = ("zscale=t=linear:npl=100,format=gbrpf32le,zscale=p=bt709,tonemap=tonemap=hable:desat=0,"
       "zscale=t=bt709:m=bt709:r=tv,format=yuv420p")
 

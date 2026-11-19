@@ -42,7 +42,7 @@ node "$HERE/render-overlays.mjs" "$W/ov-duelo" "$W/rec" 11.35 14.0 30
 python "$HERE/palabras.py" "$W/palabras.json"
 echo '{}' > "$W/fix.json"
 python "$HERE/../jardin/subtitulos.py" "$W/palabras.json" "$W/fix.json" "$W/estilo-swipe.ass"
-cp /usr/share/fonts/opentype/inter/Inter-Bold.otf "$W/"
+cp C:/Windows/Fonts/ariblk.ttf "$W/"
 
 # 5) montaje: overlays sobre la escena 3, cortes directos, volumen nivelado
 montar() { # salida con_subtitulos(0|1)

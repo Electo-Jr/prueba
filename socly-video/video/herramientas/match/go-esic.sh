@@ -12,7 +12,7 @@ OUT="$HERE/../../anuncios/match-socly"
 W="/home/user/prueba/socly-video/trabajo/match"
 export PYTHONUTF8=1
 mkdir -p "$OUT" "$W/esic"
-cp /usr/share/fonts/opentype/inter/Inter-Bold.otf "$W/esic/"
+cp C:/Windows/Fonts/ariblk.ttf "$W/esic/"
 
 python "$HERE/palabras-esic.py" "$W/esic"
 echo '{}' > "$W/esic/fix.json"

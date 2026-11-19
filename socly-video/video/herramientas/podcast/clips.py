@@ -14,7 +14,7 @@ FF = "/usr/bin/ffmpeg"
 ROOT = "/home/user/prueba/socly-video/video/podcast"
 SRC = "/home/user/prueba/socly-video/trabajo/podcast/"
 WORK = "/home/user/prueba/socly-video/trabajo/clipwork"
-FONT = "/usr/share/fonts/opentype/inter/Inter-Bold.otf"
+FONT = "C:/Windows/Fonts/ArialNova-Bold.ttf"
 
 TM = "zscale=t=linear:npl=100,format=gbrpf32le,zscale=p=bt709,tonemap=tonemap=hable:desat=0,zscale=t=bt709:m=bt709:r=tv,format=yuv420p"
 # recortes cuadrados (880x880) sobre el original 1920x1080: izquierda, derecha; «abierto» = plano completo

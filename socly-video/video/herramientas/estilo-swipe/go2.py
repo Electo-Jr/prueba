@@ -200,7 +200,7 @@ json.dump({}, open(os.path.join(V2, "fix.json"), "w"))
 env = dict(os.environ, EMPH="1", KEYS="17,100%,swipe,duelo,tinder,estilo,aprender")
 subprocess.run(["python", os.path.join(HERE, "..", "jardin", "subtitulos.py"), os.path.join(V2, "palabras.json"),
                 os.path.join(V2, "fix.json"), os.path.join(V2, "estilo-swipe.ass")], check=True, env=env)
-shutil.copy("/usr/share/fonts/opentype/inter/Inter-Bold.otf", V2)
+shutil.copy("C:/Windows/Fonts/ariblk.ttf", V2)
 
 # ---------------------------------------------------------------------------
 # 7) Montaje

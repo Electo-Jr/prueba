@@ -22,7 +22,7 @@ FPS, SR = 30, 48000
 SKIP_RENDER = "--no-render" in sys.argv
 os.makedirs(W, exist_ok=True)
 os.makedirs(OUT_DIR, exist_ok=True)
-shutil.copy("/usr/share/fonts/opentype/inter/Inter-Bold.otf", W)
+shutil.copy("C:/Windows/Fonts/ariblk.ttf", W)
 shutil.copy(DENOISE, f"{W}/bd.rnnn")
 
 HDR = ("zscale=t=linear:npl=100,format=gbrpf32le,zscale=p=bt709,tonemap=hable:desat=0,"

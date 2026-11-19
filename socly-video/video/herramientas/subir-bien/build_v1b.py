@@ -22,7 +22,7 @@ W = "/home/user/prueba/socly-video/trabajo/subir-bien-v1b"
 FPS, SR = 30, 48000
 os.makedirs(W, exist_ok=True)
 os.makedirs(OUT_DIR, exist_ok=True)
-shutil.copy("/usr/share/fonts/opentype/inter/Inter-Bold.otf", W)
+shutil.copy("C:/Windows/Fonts/ariblk.ttf", W)
 shutil.copy(DENOISE, f"{W}/bd.rnnn")
 
 HDR = ("zscale=t=linear:npl=100,format=gbrpf32le,zscale=p=bt709,tonemap=hable:desat=0,"
@@ -230,11 +230,11 @@ def titulo():
         im = Image.new("RGBA", (Wd, Ht), (0, 0, 0, 0))
         d = ImageDraw.Draw(im)
         d.rounded_rectangle((6, 6, Wd - 6, Ht - 6), radius=44, fill=(10, 10, 10, 168), outline=(242, 184, 75, 255), width=5)
-        f2 = ImageFont.truetype("/usr/share/fonts/opentype/inter/Inter-Bold.otf", 34)
+        f2 = ImageFont.truetype("C:/Windows/Fonts/ariblk.ttf", 34)
         d.text((Wd / 2, 58), small, font=f2, fill=(242, 184, 75, 255), anchor="mt")
         y = 135
         for parts, size in lines:
-            f = ImageFont.truetype("/usr/share/fonts/opentype/inter/Inter-Bold.otf", size)
+            f = ImageFont.truetype("C:/Windows/Fonts/ariblk.ttf", size)
             tot = sum(d.textlength(t, font=f) for t, _ in parts)
             x = (Wd - tot) / 2
             for t, col in parts:

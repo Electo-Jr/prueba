@@ -12,7 +12,7 @@ case "$1" in
   pov)    IN="$V/jardin-pov/jardin-pov.mp4";               OUT="$V/jardin-pov/jardin-pov-subtitulado.mp4" ;;
   *) echo "uso: bash go-subtitulos.sh jardin|pov"; exit 1 ;;
 esac
-mkdir -p "$W"; cp /usr/share/fonts/opentype/inter/Inter-Bold.otf "$W/"
+mkdir -p "$W"; cp C:/Windows/Fonts/ariblk.ttf "$W/"
 [ -f "$W/$1.json" ] || python "$HERE/transcribir.py" "$IN" "$W/$1.json"
 python "$HERE/subtitulos.py" "$W/$1.json" "$HERE/fix-$1.json" "$W/$1.ass"
 cd "$W"

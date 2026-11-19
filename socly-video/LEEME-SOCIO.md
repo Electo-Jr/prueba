@@ -8,6 +8,8 @@ Aquí está todo lo que usamos Electo y Pablo para hacer vídeos con Claude Code
 3. Abre una terminal en esa carpeta y ejecuta: `python ajustar-rutas.py`. Cambia las rutas de nuestro PC (`C:\Users\pm221\...`) por las de la carpeta donde lo has descomprimido y por tu ffmpeg.
 4. Abre Claude Code en la carpeta y dile: «Lee CLAUDE.md y video\CONTEXTO.md y dime qué herramientas hay». Desde ahí trabaja como nosotros: le pides el vídeo y él usa las herramientas.
 
+> **Windows:** en la carpeta del kit ejecuta `python ajustar-rutas.py`. Detecta tu ffmpeg, Chrome y Blender 5.2 (si está en otra ruta: `python ajustar-rutas.py --blender="RUTA\blender.exe"`) y crea `blender.cmd`, para que `blender -b --python ...` funcione desde la carpeta del kit. Los archivos `.sh` se ejecutan con Git Bash (viene con Git para Windows).
+>
 > **Linux/Mac:** `python3 ajustar-rutas.py` detecta ffmpeg y Chrome/Chromium del sistema y cambia las fuentes de Windows por otras equivalentes (el aspecto de algunos textos puede variar). Los scripts `.sh` y `.mjs` funcionan igual. Blender: instala el tuyo y pon su ruta si un script la pide. Las rutas que nombran carpetas no incluidas en el zip (`anuncios\`, `fotos-propias\`) se crean o se rellenan con tus propios archivos.
 
 ## 2. Qué hay que instalar (todo gratis)

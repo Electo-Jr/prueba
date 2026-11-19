@@ -22,8 +22,8 @@ WORK = "/home/user/prueba/socly-video/trabajo/vp/work"
 os.makedirs(WORK, exist_ok=True)
 W, H, FPS, SR = 1080, 1920, 30, 48000
 SFXS = [("IMG_7578", 4.45, "fah", 0.55)]   # (clip, t del clip, archivo, volumen): «fah» en «no nos llegan a la altura»
-FONT = "/usr/share/fonts/opentype/inter/Inter-Bold.otf"
-SERIF = "/usr/share/fonts/truetype/dejavu/DejaVuSerif-Bold.ttf"
+FONT = "C:/Windows/Fonts/ArialNova-Bold.ttf"
+SERIF = "C:/Windows/Fonts/georgiab.ttf"
 TM = ("zscale=t=linear:npl=100,format=gbrpf32le,zscale=p=bt709,tonemap=tonemap=hable:desat=0,"
       "zscale=t=bt709:m=bt709:r=tv,format=yuv420p")
 

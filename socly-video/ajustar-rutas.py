@@ -9,13 +9,15 @@ Qué hace (se puede ejecutar más de una vez):
   3. Cambia la ruta de ffmpeg por la de este ordenador.
   4. Cambia la ruta de Chrome/Chromium.
   5. Cambia las carpetas temporales de trabajo antiguas por <raiz>/trabajo/<nombre>.
-  6. Cambia las fuentes de Windows (C:/Windows/Fonts/...) por una equivalente si no estás en Windows.
+  6. Detecta Blender 5.x y crea un atajo «blender» (blender.cmd en Windows).
+  7. Cambia las fuentes de Windows (C:/Windows/Fonts/...) por una equivalente si no estás en Windows.
 Con --ver solo cuenta lo que cambiaría, sin escribir nada.
 """
 import json, os, re, shutil, subprocess, sys
 
 VER = "--ver" in sys.argv
 args = [a for a in sys.argv[1:] if not a.startswith("--")]
+BL_ARG = next((a.split("=", 1)[1] for a in sys.argv[1:] if a.startswith("--blender=")), None)
 AQUI = os.path.dirname(os.path.abspath(__file__))
 RAIZ = os.path.abspath(args[0]) if args else AQUI
 WIN = os.name == "nt"
@@ -54,6 +56,28 @@ def buscar_chrome():
     return None
 
 
+def buscar_blender():
+    """Blender 5.x: instalaciones típicas, Steam y PATH. Prefiere la 5.2."""
+    cands = []
+    for base in (os.environ.get("ProgramFiles"), os.environ.get("ProgramFiles(x86)"), r"C:\Program Files"):
+        if base:
+            d = os.path.join(base, "Blender Foundation")
+            if os.path.isdir(d):
+                for v in sorted(os.listdir(d), reverse=True):
+                    cands.append(os.path.join(d, v, "blender.exe"))
+    for base in (r"C:\Program Files (x86)\Steam\steamapps\common\Blender",
+                 r"C:\Program Files\Steam\steamapps\common\Blender"):
+        cands.append(os.path.join(base, "blender.exe"))
+    cands += ["/Applications/Blender.app/Contents/MacOS/Blender"]
+    p = shutil.which("blender")
+    if p:
+        cands.append(p)
+    existentes = [c for c in cands if os.path.exists(c)]
+    pref = [c for c in existentes if "5.2" in c]
+    sel = (pref or existentes or [None])[0]
+    return sel.replace("\\", "/") if sel else None
+
+
 def fuente_equivalente(nombre):
     """Fuente de reemplazo fuera de Windows (negrita si el nombre lo sugiere)."""
     if WIN:
@@ -71,6 +95,9 @@ def fuente_equivalente(nombre):
 
 ff = buscar_ffmpeg()
 chrome = buscar_chrome()
+blender = (BL_ARG.replace("\\", "/") if BL_ARG else buscar_blender())
+if not blender:
+    print("AVISO: no encuentro Blender (se esperaba Blender 5.2). Si está instalado en otra ruta, pásala con --blender=RUTA.")
 if not ff:
     print("AVISO: no encuentro ffmpeg. Instala imageio-ffmpeg (pip install imageio-ffmpeg) o ffmpeg del sistema y repite.")
 if not chrome:
@@ -129,6 +156,18 @@ print(("[solo ver] " if VER else "") + "Archivos modificados: %d (con CRLF pasad
 print("Raíz:  ", RAIZ)
 print("ffmpeg:", ff or "(no encontrado)")
 print("Chrome:", chrome or "(no encontrado)")
+print("Blender:", blender or "(no encontrado)")
 if not VER:
     os.makedirs(os.path.join(RAIZ, "trabajo"), exist_ok=True)
+    if blender:
+        # Atajo «blender» para que funcionen los comandos de los guiones (blender -b --python ...)
+        if WIN:
+            with open(os.path.join(RAIZ, "blender.cmd"), "w", newline="\r\n") as fh:
+                fh.write('@echo off\r\n"%s" %%*\r\n' % blender.replace("/", "\\"))
+        else:
+            sh = os.path.join(RAIZ, "blender")
+            with open(sh, "w", newline="\n") as fh:
+                fh.write('#!/bin/sh\nexec "%s" "$@"\n' % blender)
+            os.chmod(sh, 0o755)
+        print("Atajo creado: usa  blender -b --python ...  desde la raíz del kit (o añade la raíz al PATH).")
     json.dump({"raiz": RAIZ.replace("\\", "/"), "ffmpeg": ff, "chrome": chrome}, open(MARCA, "w", encoding="utf-8"))
