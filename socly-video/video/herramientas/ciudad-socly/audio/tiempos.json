@@ -1,0 +1,1147 @@
+[
+ {
+  "plano": 1,
+  "frase": "En esta ciudad nadie sabía vestirse.",
+  "inicio": 0.04,
+  "fin": 2.417,
+  "tempo": 1.04,
+  "voz": "narrador",
+  "palabras": [
+   {
+    "w": "En",
+    "a": 0.04,
+    "b": 0.443
+   },
+   {
+    "w": "esta",
+    "a": 0.443,
+    "b": 0.673
+   },
+   {
+    "w": "ciudad",
+    "a": 0.673,
+    "b": 1.038
+   },
+   {
+    "w": "nadie",
+    "a": 1.038,
+    "b": 1.575
+   },
+   {
+    "w": "sabía",
+    "a": 1.575,
+    "b": 1.92
+   },
+   {
+    "w": "vestirse.",
+    "a": 1.92,
+    "b": 2.304
+   }
+  ]
+ },
+ {
+  "plano": 2,
+  "frase": "Nadie. Bueno, nadie menos uno.",
+  "inicio": 2.54,
+  "fin": 4.72,
+  "tempo": 1.0,
+  "voz": "narrador",
+  "palabras": [
+   {
+    "w": "Nadie.",
+    "a": 2.58,
+    "b": 3.08
+   },
+   {
+    "w": "Bueno,",
+    "a": 3.48,
+    "b": 3.64
+   },
+   {
+    "w": "nadie",
+    "a": 3.64,
+    "b": 4.16
+   },
+   {
+    "w": "menos",
+    "a": 4.16,
+    "b": 4.34
+   },
+   {
+    "w": "uno.",
+    "a": 4.34,
+    "b": 4.62
+   }
+  ]
+ },
+ {
+  "plano": 3,
+  "frase": "Soclo: impecable, con estilo propio.",
+  "inicio": 5.04,
+  "fin": 7.34,
+  "tempo": 1.0,
+  "voz": "narrador",
+  "palabras": [
+   {
+    "w": "Soclo:",
+    "a": 5.08,
+    "b": 5.4
+   },
+   {
+    "w": "impecable,",
+    "a": 5.4,
+    "b": 6.38
+   },
+   {
+    "w": "con",
+    "a": 6.64,
+    "b": 6.76
+   },
+   {
+    "w": "estilo",
+    "a": 6.76,
+    "b": 6.96
+   },
+   {
+    "w": "propio.",
+    "a": 6.96,
+    "b": 7.24
+   }
+  ]
+ },
+ {
+  "plano": 4,
+  "frase": "Una ciudad de neones, fuentes y confeti.",
+  "inicio": 7.54,
+  "fin": 9.8,
+  "tempo": 1.0,
+  "voz": "narrador",
+  "palabras": [
+   {
+    "w": "Una",
+    "a": 7.58,
+    "b": 7.84
+   },
+   {
+    "w": "ciudad",
+    "a": 7.84,
+    "b": 8.08
+   },
+   {
+    "w": "de",
+    "a": 8.08,
+    "b": 8.28
+   },
+   {
+    "w": "neones,",
+    "a": 8.28,
+    "b": 8.7
+   },
+   {
+    "w": "fuentes",
+    "a": 8.7,
+    "b": 9.18
+   },
+   {
+    "w": "y",
+    "a": 9.18,
+    "b": 9.34
+   },
+   {
+    "w": "confeti.",
+    "a": 9.34,
+    "b": 9.7
+   }
+  ]
+ },
+ {
+  "plano": 5,
+  "frase": "Y su gente, vestida como un accidente.",
+  "inicio": 10.04,
+  "fin": 12.408,
+  "tempo": 1.11,
+  "voz": "narrador",
+  "palabras": [
+   {
+    "w": "Y",
+    "a": 10.076,
+    "b": 10.562
+   },
+   {
+    "w": "su",
+    "a": 10.562,
+    "b": 10.671
+   },
+   {
+    "w": "gente,",
+    "a": 10.671,
+    "b": 10.887
+   },
+   {
+    "w": "vestida",
+    "a": 10.887,
+    "b": 11.373
+   },
+   {
+    "w": "como",
+    "a": 11.373,
+    "b": 11.589
+   },
+   {
+    "w": "un",
+    "a": 11.589,
+    "b": 11.733
+   },
+   {
+    "w": "accidente.",
+    "a": 11.733,
+    "b": 12.31
+   }
+  ]
+ },
+ {
+  "plano": 6,
+  "frase": "Pero había otro que también vestía genial.",
+  "inicio": 12.54,
+  "fin": 14.913,
+  "tempo": 1.07,
+  "voz": "narrador",
+  "palabras": [
+   {
+    "w": "Pero",
+    "a": 12.577,
+    "b": 12.858
+   },
+   {
+    "w": "había",
+    "a": 12.858,
+    "b": 13.252
+   },
+   {
+    "w": "otro",
+    "a": 13.252,
+    "b": 13.495
+   },
+   {
+    "w": "que",
+    "a": 13.495,
+    "b": 13.683
+   },
+   {
+    "w": "también",
+    "a": 13.683,
+    "b": 14.057
+   },
+   {
+    "w": "vestía",
+    "a": 14.057,
+    "b": 14.507
+   },
+   {
+    "w": "genial.",
+    "a": 14.507,
+    "b": 14.806
+   }
+  ]
+ },
+ {
+  "plano": 7,
+  "frase": "El alcalde. ¿Su secreto? Ni idea.",
+  "inicio": 15.04,
+  "fin": 17.4,
+  "tempo": 1.0,
+  "voz": "narrador",
+  "palabras": [
+   {
+    "w": "El",
+    "a": 15.08,
+    "b": 15.22
+   },
+   {
+    "w": "alcalde.",
+    "a": 15.22,
+    "b": 15.74
+   },
+   {
+    "w": "¿Su",
+    "a": 16.08,
+    "b": 16.2
+   },
+   {
+    "w": "secreto?",
+    "a": 16.2,
+    "b": 16.7
+   },
+   {
+    "w": "Ni",
+    "a": 16.7,
+    "b": 17.04
+   },
+   {
+    "w": "idea.",
+    "a": 17.04,
+    "b": 17.3
+   }
+  ]
+ },
+ {
+  "plano": 8,
+  "frase": "Y los tenía a todos enganchados.",
+  "inicio": 17.54,
+  "fin": 19.92,
+  "tempo": 1.01,
+  "voz": "narrador",
+  "palabras": [
+   {
+    "w": "Y",
+    "a": 17.58,
+    "b": 18.313
+   },
+   {
+    "w": "los",
+    "a": 18.313,
+    "b": 18.432
+   },
+   {
+    "w": "tenía",
+    "a": 18.432,
+    "b": 18.67
+   },
+   {
+    "w": "a",
+    "a": 18.67,
+    "b": 18.889
+   },
+   {
+    "w": "todos",
+    "a": 18.889,
+    "b": 19.146
+   },
+   {
+    "w": "enganchados.",
+    "a": 19.146,
+    "b": 19.801
+   }
+  ]
+ },
+ {
+  "plano": 9,
+  "frase": "Pantallas gigantes, ofertas sin fin, anuncios.",
+  "inicio": 20.04,
+  "fin": 22.416,
+  "tempo": 1.08,
+  "voz": "narrador",
+  "palabras": [
+   {
+    "w": "Pantallas",
+    "a": 20.077,
+    "b": 20.335
+   },
+   {
+    "w": "gigantes,",
+    "a": 20.335,
+    "b": 20.833
+   },
+   {
+    "w": "ofertas",
+    "a": 21.017,
+    "b": 21.238
+   },
+   {
+    "w": "sin",
+    "a": 21.238,
+    "b": 21.478
+   },
+   {
+    "w": "fin,",
+    "a": 21.478,
+    "b": 21.662
+   },
+   {
+    "w": "anuncios.",
+    "a": 21.902,
+    "b": 22.308
+   }
+  ]
+ },
+ {
+  "plano": 10,
+  "frase": "Rebajas eternas, sorteos, notificaciones sin parar.",
+  "inicio": 22.54,
+  "fin": 24.897,
+  "tempo": 1.33,
+  "voz": "narrador",
+  "palabras": [
+   {
+    "w": "Rebajas",
+    "a": 22.57,
+    "b": 22.871
+   },
+   {
+    "w": "eternas,",
+    "a": 22.871,
+    "b": 23.397
+   },
+   {
+    "w": "sorteos,",
+    "a": 23.532,
+    "b": 23.908
+   },
+   {
+    "w": "notificaciones",
+    "a": 24.073,
+    "b": 24.494
+   },
+   {
+    "w": "sin",
+    "a": 24.494,
+    "b": 24.659
+   },
+   {
+    "w": "parar.",
+    "a": 24.659,
+    "b": 24.825
+   }
+  ]
+ },
+ {
+  "plano": 11,
+  "frase": "Nadie miraba su propio armario.",
+  "inicio": 25.04,
+  "fin": 27.12,
+  "tempo": 1.0,
+  "voz": "narrador",
+  "palabras": [
+   {
+    "w": "Nadie",
+    "a": 25.08,
+    "b": 25.86
+   },
+   {
+    "w": "miraba",
+    "a": 25.86,
+    "b": 26.28
+   },
+   {
+    "w": "su",
+    "a": 26.28,
+    "b": 26.46
+   },
+   {
+    "w": "propio",
+    "a": 26.46,
+    "b": 26.66
+   },
+   {
+    "w": "armario.",
+    "a": 26.66,
+    "b": 27.02
+   }
+  ]
+ },
+ {
+  "plano": 12,
+  "frase": "Soclo sospechó y lo siguió.",
+  "inicio": 27.54,
+  "fin": 29.1,
+  "tempo": 1.0,
+  "voz": "narrador",
+  "palabras": [
+   {
+    "w": "Soclo",
+    "a": 27.58,
+    "b": 28.0
+   },
+   {
+    "w": "sospechó",
+    "a": 28.0,
+    "b": 28.46
+   },
+   {
+    "w": "y",
+    "a": 28.46,
+    "b": 28.56
+   },
+   {
+    "w": "lo",
+    "a": 28.56,
+    "b": 28.66
+   },
+   {
+    "w": "siguió.",
+    "a": 28.66,
+    "b": 29.0
+   }
+  ]
+ },
+ {
+  "plano": 13,
+  "frase": "Tras una puerta secreta, un vestidor.",
+  "inicio": 30.04,
+  "fin": 32.14,
+  "tempo": 1.0,
+  "voz": "narrador",
+  "palabras": [
+   {
+    "w": "Tras",
+    "a": 30.08,
+    "b": 30.26
+   },
+   {
+    "w": "una",
+    "a": 30.26,
+    "b": 30.48
+   },
+   {
+    "w": "puerta",
+    "a": 30.48,
+    "b": 30.66
+   },
+   {
+    "w": "secreta,",
+    "a": 30.66,
+    "b": 31.2
+   },
+   {
+    "w": "un",
+    "a": 31.2,
+    "b": 31.54
+   },
+   {
+    "w": "vestidor.",
+    "a": 31.54,
+    "b": 32.04
+   }
+  ]
+ },
+ {
+  "plano": 14,
+  "frase": "Y en su móvil, Socly Style.",
+  "inicio": 32.54,
+  "fin": 34.6,
+  "tempo": 1.0,
+  "voz": "narrador",
+  "palabras": [
+   {
+    "w": "Y",
+    "a": 32.58,
+    "b": 33.12
+   },
+   {
+    "w": "en",
+    "a": 33.12,
+    "b": 33.22
+   },
+   {
+    "w": "su",
+    "a": 33.22,
+    "b": 33.34
+   },
+   {
+    "w": "móvil,",
+    "a": 33.34,
+    "b": 33.6
+   },
+   {
+    "w": "Socly",
+    "a": 33.98,
+    "b": 34.26
+   },
+   {
+    "w": "Style.",
+    "a": 34.26,
+    "b": 34.5
+   }
+  ]
+ },
+ {
+  "plano": 15,
+  "frase": "Prendas subidas, looks montados, Vista puesta.",
+  "inicio": 35.04,
+  "fin": 37.399,
+  "tempo": 1.33,
+  "voz": "narrador",
+  "palabras": [
+   {
+    "w": "Prendas",
+    "a": 35.07,
+    "b": 35.371
+   },
+   {
+    "w": "subidas,",
+    "a": 35.371,
+    "b": 35.746
+   },
+   {
+    "w": "looks",
+    "a": 36.002,
+    "b": 36.122
+   },
+   {
+    "w": "montados,",
+    "a": 36.122,
+    "b": 36.573
+   },
+   {
+    "w": "Vista",
+    "a": 36.844,
+    "b": 37.024
+   },
+   {
+    "w": "puesta.",
+    "a": 37.024,
+    "b": 37.325
+   }
+  ]
+ },
+ {
+  "plano": 16,
+  "frase": "Qué generoso, alcalde.",
+  "inicio": 37.54,
+  "fin": 39.46,
+  "tempo": 1.0,
+  "voz": "soclo",
+  "palabras": [
+   {
+    "w": "Qué",
+    "a": 37.54,
+    "b": 37.96
+   },
+   {
+    "w": "generoso,",
+    "a": 37.96,
+    "b": 38.72
+   },
+   {
+    "w": "alcalde.",
+    "a": 38.84,
+    "b": 39.36
+   }
+  ]
+ },
+ {
+  "plano": 17,
+  "frase": "Pantallas para ellos. Espejo para ti.",
+  "inicio": 40.04,
+  "fin": 42.34,
+  "tempo": 1.0,
+  "voz": "soclo",
+  "palabras": [
+   {
+    "w": "Pantallas",
+    "a": 40.08,
+    "b": 40.48
+   },
+   {
+    "w": "para",
+    "a": 40.48,
+    "b": 40.74
+   },
+   {
+    "w": "ellos.",
+    "a": 40.74,
+    "b": 41.04
+   },
+   {
+    "w": "Espejo",
+    "a": 41.38,
+    "b": 41.88
+   },
+   {
+    "w": "para",
+    "a": 41.88,
+    "b": 42.06
+   },
+   {
+    "w": "ti.",
+    "a": 42.06,
+    "b": 42.24
+   }
+  ]
+ },
+ {
+  "plano": 18,
+  "frase": "Furioso, el alcalde intentó callarlo.",
+  "inicio": 42.54,
+  "fin": 44.62,
+  "tempo": 1.0,
+  "voz": "narrador",
+  "palabras": [
+   {
+    "w": "Furioso,",
+    "a": 42.58,
+    "b": 43.04
+   },
+   {
+    "w": "el",
+    "a": 43.04,
+    "b": 43.38
+   },
+   {
+    "w": "alcalde",
+    "a": 43.38,
+    "b": 43.74
+   },
+   {
+    "w": "intentó",
+    "a": 43.74,
+    "b": 44.12
+   },
+   {
+    "w": "callarlo.",
+    "a": 44.12,
+    "b": 44.52
+   }
+  ]
+ },
+ {
+  "plano": 19,
+  "frase": "Soclo reunió a toda la ciudad.",
+  "inicio": 45.04,
+  "fin": 46.48,
+  "tempo": 1.0,
+  "voz": "narrador",
+  "palabras": [
+   {
+    "w": "Soclo",
+    "a": 45.08,
+    "b": 45.34
+   },
+   {
+    "w": "reunió",
+    "a": 45.34,
+    "b": 45.7
+   },
+   {
+    "w": "a",
+    "a": 45.7,
+    "b": 45.82
+   },
+   {
+    "w": "toda",
+    "a": 45.82,
+    "b": 46.0
+   },
+   {
+    "w": "la",
+    "a": 46.0,
+    "b": 46.16
+   },
+   {
+    "w": "ciudad.",
+    "a": 46.16,
+    "b": 46.38
+   }
+  ]
+ },
+ {
+  "plano": 20,
+  "frase": "Su elegancia no es talento: es una app.",
+  "inicio": 47.54,
+  "fin": 49.86,
+  "tempo": 1.0,
+  "voz": "soclo",
+  "palabras": [
+   {
+    "w": "Su",
+    "a": 47.58,
+    "b": 47.76
+   },
+   {
+    "w": "elegancia",
+    "a": 47.76,
+    "b": 48.12
+   },
+   {
+    "w": "no",
+    "a": 48.12,
+    "b": 48.22
+   },
+   {
+    "w": "es",
+    "a": 48.22,
+    "b": 48.34
+   },
+   {
+    "w": "talento:",
+    "a": 48.34,
+    "b": 48.82
+   },
+   {
+    "w": "es",
+    "a": 48.86,
+    "b": 49.1
+   },
+   {
+    "w": "una",
+    "a": 49.1,
+    "b": 49.3
+   },
+   {
+    "w": "app.",
+    "a": 49.3,
+    "b": 49.76
+   }
+  ]
+ },
+ {
+  "plano": 21,
+  "frase": "Todos miraron sus pintas. Después, al alcalde.",
+  "inicio": 50.04,
+  "fin": 52.413,
+  "tempo": 1.15,
+  "voz": "narrador",
+  "palabras": [
+   {
+    "w": "Todos",
+    "a": 50.075,
+    "b": 50.231
+   },
+   {
+    "w": "miraron",
+    "a": 50.231,
+    "b": 50.526
+   },
+   {
+    "w": "sus",
+    "a": 50.526,
+    "b": 50.717
+   },
+   {
+    "w": "pintas.",
+    "a": 50.717,
+    "b": 51.064
+   },
+   {
+    "w": "Después,",
+    "a": 51.428,
+    "b": 51.654
+   },
+   {
+    "w": "al",
+    "a": 51.654,
+    "b": 51.931
+   },
+   {
+    "w": "alcalde.",
+    "a": 51.931,
+    "b": 52.313
+   }
+  ]
+ },
+ {
+  "plano": 22,
+  "frase": "Cuenta atrás: tres, dos, uno.",
+  "inicio": 52.54,
+  "fin": 54.899,
+  "tempo": 1.36,
+  "voz": "narrador",
+  "palabras": [
+   {
+    "w": "Cuenta",
+    "a": 52.57,
+    "b": 53.027
+   },
+   {
+    "w": "atrás:",
+    "a": 53.027,
+    "b": 53.248
+   },
+   {
+    "w": "tres,",
+    "a": 53.558,
+    "b": 53.75
+   },
+   {
+    "w": "dos,",
+    "a": 54.044,
+    "b": 54.251
+   },
+   {
+    "w": "uno.",
+    "a": 54.634,
+    "b": 54.826
+   }
+  ]
+ },
+ {
+  "plano": 23,
+  "frase": "Y el alcalde salió rumbo a Marte.",
+  "inicio": 55.04,
+  "fin": 57.414,
+  "tempo": 1.03,
+  "voz": "narrador",
+  "palabras": [
+   {
+    "w": "Y",
+    "a": 55.079,
+    "b": 55.274
+   },
+   {
+    "w": "el",
+    "a": 55.274,
+    "b": 55.352
+   },
+   {
+    "w": "alcalde",
+    "a": 55.352,
+    "b": 55.664
+   },
+   {
+    "w": "salió",
+    "a": 55.664,
+    "b": 55.937
+   },
+   {
+    "w": "rumbo",
+    "a": 55.937,
+    "b": 56.756
+   },
+   {
+    "w": "a",
+    "a": 56.756,
+    "b": 56.834
+   },
+   {
+    "w": "Marte.",
+    "a": 56.834,
+    "b": 57.302
+   }
+  ]
+ },
+ {
+  "plano": 24,
+  "frase": "En un cohete de Socly Style.",
+  "inicio": 57.54,
+  "fin": 59.0,
+  "tempo": 1.0,
+  "voz": "narrador",
+  "palabras": [
+   {
+    "w": "En",
+    "a": 57.58,
+    "b": 57.82
+   },
+   {
+    "w": "un",
+    "a": 57.82,
+    "b": 57.92
+   },
+   {
+    "w": "cohete",
+    "a": 57.92,
+    "b": 58.22
+   },
+   {
+    "w": "de",
+    "a": 58.22,
+    "b": 58.34
+   },
+   {
+    "w": "Socly",
+    "a": 58.34,
+    "b": 58.68
+   },
+   {
+    "w": "Style.",
+    "a": 58.68,
+    "b": 58.9
+   }
+  ]
+ },
+ {
+  "plano": 25,
+  "frase": "Entonces todos se bajaron la app.",
+  "inicio": 60.04,
+  "fin": 61.82,
+  "tempo": 1.0,
+  "voz": "narrador",
+  "palabras": [
+   {
+    "w": "Entonces",
+    "a": 60.08,
+    "b": 60.46
+   },
+   {
+    "w": "todos",
+    "a": 60.46,
+    "b": 60.86
+   },
+   {
+    "w": "se",
+    "a": 60.86,
+    "b": 61.06
+   },
+   {
+    "w": "bajaron",
+    "a": 61.06,
+    "b": 61.38
+   },
+   {
+    "w": "la",
+    "a": 61.38,
+    "b": 61.52
+   },
+   {
+    "w": "app.",
+    "a": 61.52,
+    "b": 61.72
+   }
+  ]
+ },
+ {
+  "plano": 26,
+  "frase": "Y cada uno se vistió a su manera.",
+  "inicio": 62.54,
+  "fin": 63.98,
+  "tempo": 1.0,
+  "voz": "narrador",
+  "palabras": [
+   {
+    "w": "Y",
+    "a": 62.58,
+    "b": 62.68
+   },
+   {
+    "w": "cada",
+    "a": 62.68,
+    "b": 62.86
+   },
+   {
+    "w": "uno",
+    "a": 62.86,
+    "b": 63.1
+   },
+   {
+    "w": "se",
+    "a": 63.1,
+    "b": 63.24
+   },
+   {
+    "w": "vistió",
+    "a": 63.333,
+    "b": 63.427
+   },
+   {
+    "w": "a",
+    "a": 63.473,
+    "b": 63.52
+   },
+   {
+    "w": "su",
+    "a": 63.52,
+    "b": 63.62
+   },
+   {
+    "w": "manera.",
+    "a": 63.62,
+    "b": 63.88
+   }
+  ]
+ },
+ {
+  "plano": 27,
+  "frase": "No tengo cuello, pero la bufanda me queda de lujo.",
+  "inicio": 65.04,
+  "fin": 67.417,
+  "tempo": 1.19,
+  "voz": "soclo",
+  "palabras": [
+   {
+    "w": "No",
+    "a": 65.074,
+    "b": 65.343
+   },
+   {
+    "w": "tengo",
+    "a": 65.343,
+    "b": 65.563
+   },
+   {
+    "w": "cuello,",
+    "a": 65.563,
+    "b": 65.883
+   },
+   {
+    "w": "pero",
+    "a": 65.967,
+    "b": 66.035
+   },
+   {
+    "w": "la",
+    "a": 66.035,
+    "b": 66.186
+   },
+   {
+    "w": "bufanda",
+    "a": 66.186,
+    "b": 66.507
+   },
+   {
+    "w": "me",
+    "a": 66.507,
+    "b": 66.641
+   },
+   {
+    "w": "queda",
+    "a": 66.641,
+    "b": 66.827
+   },
+   {
+    "w": "de",
+    "a": 66.827,
+    "b": 66.962
+   },
+   {
+    "w": "lujo.",
+    "a": 66.962,
+    "b": 67.316
+   }
+  ]
+ },
+ {
+  "plano": 28,
+  "frase": "Entra en Socly Style. Tu estilo manda.",
+  "inicio": 67.54,
+  "fin": 69.9,
+  "tempo": 1.0,
+  "voz": "narrador",
+  "palabras": [
+   {
+    "w": "Entra",
+    "a": 67.58,
+    "b": 67.82
+   },
+   {
+    "w": "en",
+    "a": 67.82,
+    "b": 67.98
+   },
+   {
+    "w": "Socly",
+    "a": 67.98,
+    "b": 68.3
+   },
+   {
+    "w": "Style.",
+    "a": 68.3,
+    "b": 68.56
+   },
+   {
+    "w": "Tu",
+    "a": 68.9,
+    "b": 69.0
+   },
+   {
+    "w": "estilo",
+    "a": 69.0,
+    "b": 69.28
+   },
+   {
+    "w": "manda.",
+    "a": 69.28,
+    "b": 69.8
+   }
+  ]
+ }
+]

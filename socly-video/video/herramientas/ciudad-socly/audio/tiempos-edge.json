@@ -1,0 +1,226 @@
+[
+ {
+  "plano": 1,
+  "frase": "En esta ciudad nadie sabía vestirse.",
+  "inicio": 0.05,
+  "fin": 1.613,
+  "tempo": 1.26,
+  "voz": "narrador"
+ },
+ {
+  "plano": 2,
+  "frase": "Nadie. Bueno, nadie menos uno.",
+  "inicio": 2.55,
+  "fin": 4.43,
+  "tempo": 1.5,
+  "voz": "narrador"
+ },
+ {
+  "plano": 3,
+  "frase": "Soclo: impecable, con estilo propio.",
+  "inicio": 5.05,
+  "fin": 6.726,
+  "tempo": 1.47,
+  "voz": "narrador"
+ },
+ {
+  "plano": 4,
+  "frase": "Una ciudad de neones, fuentes y confeti.",
+  "inicio": 7.55,
+  "fin": 9.223,
+  "tempo": 1.42,
+  "voz": "narrador"
+ },
+ {
+  "plano": 5,
+  "frase": "Y su gente, vestida como un accidente.",
+  "inicio": 10.05,
+  "fin": 11.69,
+  "tempo": 1.4,
+  "voz": "narrador"
+ },
+ {
+  "plano": 6,
+  "frase": "Pero había otro que también vestía genial.",
+  "inicio": 12.55,
+  "fin": 14.082,
+  "tempo": 1.24,
+  "voz": "narrador"
+ },
+ {
+  "plano": 7,
+  "frase": "El alcalde. ¿Su secreto? Ni idea.",
+  "inicio": 15.05,
+  "fin": 17.504,
+  "tempo": 1.5,
+  "voz": "narrador"
+ },
+ {
+  "plano": 8,
+  "frase": "Y los tenía a todos enganchados.",
+  "inicio": 17.55,
+  "fin": 19.068,
+  "tempo": 1.17,
+  "voz": "narrador"
+ },
+ {
+  "plano": 9,
+  "frase": "Pantallas gigantes, ofertas sin fin, anuncios.",
+  "inicio": 20.05,
+  "fin": 22.041,
+  "tempo": 1.5,
+  "voz": "narrador"
+ },
+ {
+  "plano": 10,
+  "frase": "Rebajas eternas, sorteos, notificaciones sin parar.",
+  "inicio": 22.55,
+  "fin": 24.701,
+  "tempo": 1.5,
+  "voz": "narrador"
+ },
+ {
+  "plano": 11,
+  "frase": "Nadie miraba su propio armario.",
+  "inicio": 25.05,
+  "fin": 26.485,
+  "tempo": 1.08,
+  "voz": "narrador"
+ },
+ {
+  "plano": 12,
+  "frase": "Soclo sospechó y lo siguió.",
+  "inicio": 27.55,
+  "fin": 28.915,
+  "tempo": 1.06,
+  "voz": "narrador"
+ },
+ {
+  "plano": 13,
+  "frase": "Tras una puerta secreta, un vestidor.",
+  "inicio": 30.05,
+  "fin": 31.621,
+  "tempo": 1.32,
+  "voz": "narrador"
+ },
+ {
+  "plano": 14,
+  "frase": "Y en su móvil, Socly Style.",
+  "inicio": 32.55,
+  "fin": 33.968,
+  "tempo": 1.15,
+  "voz": "narrador"
+ },
+ {
+  "plano": 15,
+  "frase": "Prendas subidas, looks montados, Vista puesta.",
+  "inicio": 35.05,
+  "fin": 36.964,
+  "tempo": 1.5,
+  "voz": "narrador"
+ },
+ {
+  "plano": 16,
+  "frase": "Qué generoso, alcalde.",
+  "inicio": 37.55,
+  "fin": 38.952,
+  "tempo": 1.09,
+  "voz": "soclo"
+ },
+ {
+  "plano": 17,
+  "frase": "Pantallas para ellos. Espejo para ti.",
+  "inicio": 40.05,
+  "fin": 42.097,
+  "tempo": 1.5,
+  "voz": "soclo"
+ },
+ {
+  "plano": 18,
+  "frase": "Furioso, el alcalde intentó callarlo.",
+  "inicio": 42.55,
+  "fin": 44.187,
+  "tempo": 1.41,
+  "voz": "narrador"
+ },
+ {
+  "plano": 19,
+  "frase": "Soclo reunió a toda la ciudad.",
+  "inicio": 45.05,
+  "fin": 46.521,
+  "tempo": 1.15,
+  "voz": "narrador"
+ },
+ {
+  "plano": 20,
+  "frase": "Su elegancia no es talento: es una app.",
+  "inicio": 47.55,
+  "fin": 49.154,
+  "tempo": 1.48,
+  "voz": "soclo"
+ },
+ {
+  "plano": 21,
+  "frase": "Todos miraron sus pintas. Después, al alcalde.",
+  "inicio": 50.05,
+  "fin": 52.472,
+  "tempo": 1.5,
+  "voz": "narrador"
+ },
+ {
+  "plano": 22,
+  "frase": "Cuenta atrás: tres, dos, uno.",
+  "inicio": 52.55,
+  "fin": 54.214,
+  "tempo": 1.48,
+  "voz": "narrador"
+ },
+ {
+  "plano": 23,
+  "frase": "Y el alcalde salió rumbo a Marte.",
+  "inicio": 55.05,
+  "fin": 56.556,
+  "tempo": 1.16,
+  "voz": "narrador"
+ },
+ {
+  "plano": 24,
+  "frase": "En un cohete de Socly Style.",
+  "inicio": 57.55,
+  "fin": 58.928,
+  "tempo": 1.05,
+  "voz": "narrador"
+ },
+ {
+  "plano": 25,
+  "frase": "Entonces todos se bajaron la app.",
+  "inicio": 60.05,
+  "fin": 61.581,
+  "tempo": 1.12,
+  "voz": "narrador"
+ },
+ {
+  "plano": 26,
+  "frase": "Y cada uno se vistió a su manera.",
+  "inicio": 62.55,
+  "fin": 64.026,
+  "tempo": 1.14,
+  "voz": "narrador"
+ },
+ {
+  "plano": 27,
+  "frase": "No tengo cuello, pero la bufanda me queda de lujo.",
+  "inicio": 65.05,
+  "fin": 66.872,
+  "tempo": 1.5,
+  "voz": "soclo"
+ },
+ {
+  "plano": 28,
+  "frase": "Entra en Socly Style. Tu estilo manda.",
+  "inicio": 67.55,
+  "fin": 69.445,
+  "tempo": 1.5,
+  "voz": "narrador"
+ }
+]

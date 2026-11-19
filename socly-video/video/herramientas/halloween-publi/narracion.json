@@ -1,0 +1,314 @@
+{
+ "frases": [
+  {
+   "texto": "Esta semana, Socly Style se viste de Halloween.",
+   "inicio": 0.0,
+   "fin": 4.2
+  },
+  {
+   "texto": "Sube tu ropa y recibe looks con IA.",
+   "inicio": 4.55,
+   "fin": 7.63
+  },
+  {
+   "texto": "Truco: un descuento sorpresa. Trato: si un amigo compra un pack, el mismo pack es tuyo gratis.",
+   "inicio": 7.98,
+   "fin": 13.46
+  },
+  {
+   "texto": "Elige uno, una sola vez. Hasta el dos de noviembre. Enlace en la bio.",
+   "inicio": 13.81,
+   "fin": 17.69
+  }
+ ],
+ "palabras": [
+  {
+   "w": "Esta",
+   "a": 0.0,
+   "b": 0.36,
+   "en": false
+  },
+  {
+   "w": "semana,",
+   "a": 0.36,
+   "b": 0.94,
+   "en": false
+  },
+  {
+   "w": "Socly",
+   "a": 1.0,
+   "b": 1.48,
+   "en": true
+  },
+  {
+   "w": "Style",
+   "a": 1.48,
+   "b": 1.96,
+   "en": true
+  },
+  {
+   "w": "se",
+   "a": 2.02,
+   "b": 2.26,
+   "en": false
+  },
+  {
+   "w": "viste",
+   "a": 2.26,
+   "b": 2.75,
+   "en": false
+  },
+  {
+   "w": "de",
+   "a": 2.75,
+   "b": 3.0,
+   "en": false
+  },
+  {
+   "w": "Halloween",
+   "a": 3.06,
+   "b": 3.83,
+   "en": true
+  },
+  {
+   "w": ".",
+   "a": 3.89,
+   "b": 4.14,
+   "en": false
+  },
+  {
+   "w": "Sube",
+   "a": 4.55,
+   "b": 4.93,
+   "en": false
+  },
+  {
+   "w": "tu",
+   "a": 4.93,
+   "b": 5.15,
+   "en": false
+  },
+  {
+   "w": "ropa",
+   "a": 5.15,
+   "b": 5.53,
+   "en": false
+  },
+  {
+   "w": "y",
+   "a": 5.53,
+   "b": 5.68,
+   "en": false
+  },
+  {
+   "w": "recibe",
+   "a": 5.68,
+   "b": 6.21,
+   "en": false
+  },
+  {
+   "w": "looks",
+   "a": 6.27,
+   "b": 6.81,
+   "en": true
+  },
+  {
+   "w": "con",
+   "a": 6.87,
+   "b": 7.22,
+   "en": false
+  },
+  {
+   "w": "IA.",
+   "a": 7.22,
+   "b": 7.57,
+   "en": false
+  },
+  {
+   "w": "Truco:",
+   "a": 7.98,
+   "b": 8.38,
+   "en": false
+  },
+  {
+   "w": "un",
+   "a": 8.38,
+   "b": 8.55,
+   "en": false
+  },
+  {
+   "w": "descuento",
+   "a": 8.55,
+   "b": 9.12,
+   "en": false
+  },
+  {
+   "w": "sorpresa.",
+   "a": 9.12,
+   "b": 9.69,
+   "en": false
+  },
+  {
+   "w": "Trato:",
+   "a": 9.69,
+   "b": 10.09,
+   "en": false
+  },
+  {
+   "w": "si",
+   "a": 10.09,
+   "b": 10.26,
+   "en": false
+  },
+  {
+   "w": "un",
+   "a": 10.26,
+   "b": 10.43,
+   "en": false
+  },
+  {
+   "w": "amigo",
+   "a": 10.43,
+   "b": 10.77,
+   "en": false
+  },
+  {
+   "w": "compra",
+   "a": 10.77,
+   "b": 11.17,
+   "en": false
+  },
+  {
+   "w": "un",
+   "a": 11.17,
+   "b": 11.34,
+   "en": false
+  },
+  {
+   "w": "pack,",
+   "a": 11.34,
+   "b": 11.69,
+   "en": false
+  },
+  {
+   "w": "el",
+   "a": 11.69,
+   "b": 11.86,
+   "en": false
+  },
+  {
+   "w": "mismo",
+   "a": 11.86,
+   "b": 12.2,
+   "en": false
+  },
+  {
+   "w": "pack",
+   "a": 12.2,
+   "b": 12.49,
+   "en": false
+  },
+  {
+   "w": "es",
+   "a": 12.49,
+   "b": 12.66,
+   "en": false
+  },
+  {
+   "w": "tuyo",
+   "a": 12.66,
+   "b": 12.94,
+   "en": false
+  },
+  {
+   "w": "gratis.",
+   "a": 12.94,
+   "b": 13.4,
+   "en": false
+  },
+  {
+   "w": "Elige",
+   "a": 13.81,
+   "b": 14.14,
+   "en": false
+  },
+  {
+   "w": "uno,",
+   "a": 14.14,
+   "b": 14.41,
+   "en": false
+  },
+  {
+   "w": "una",
+   "a": 14.41,
+   "b": 14.63,
+   "en": false
+  },
+  {
+   "w": "sola",
+   "a": 14.63,
+   "b": 14.9,
+   "en": false
+  },
+  {
+   "w": "vez.",
+   "a": 14.9,
+   "b": 15.17,
+   "en": false
+  },
+  {
+   "w": "Hasta",
+   "a": 15.17,
+   "b": 15.5,
+   "en": false
+  },
+  {
+   "w": "el",
+   "a": 15.5,
+   "b": 15.66,
+   "en": false
+  },
+  {
+   "w": "dos",
+   "a": 15.66,
+   "b": 15.88,
+   "en": false
+  },
+  {
+   "w": "de",
+   "a": 15.88,
+   "b": 16.04,
+   "en": false
+  },
+  {
+   "w": "noviembre.",
+   "a": 16.04,
+   "b": 16.64,
+   "en": false
+  },
+  {
+   "w": "Enlace",
+   "a": 16.64,
+   "b": 17.03,
+   "en": false
+  },
+  {
+   "w": "en",
+   "a": 17.03,
+   "b": 17.19,
+   "en": false
+  },
+  {
+   "w": "la",
+   "a": 17.19,
+   "b": 17.35,
+   "en": false
+  },
+  {
+   "w": "bio.",
+   "a": 17.35,
+   "b": 17.63,
+   "en": false
+  }
+ ]
+}

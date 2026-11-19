@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="es"><head><meta charset="utf-8">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{width:576px;height:1024px;overflow:hidden;background:#f4f1ea}
+#stage{position:relative;width:576px;height:1024px;overflow:hidden;background:#f4f1ea;font-family:Inter,system-ui,sans-serif;color:#15140f}
+.abs{position:absolute}
+#bg{position:absolute;inset:0;background:
+  radial-gradient(90% 55% at 12% 0%,rgba(226,196,160,.55),transparent 60%),
+  radial-gradient(80% 50% at 100% 100%,rgba(214,192,170,.5),transparent 60%),#f1ece2}
+.serif{font-family:'Instrument Serif',Georgia,serif;font-weight:400}
+.mono{font-family:'Courier New',monospace;letter-spacing:.22em;text-transform:uppercase}
+.emo{font-family:'Segoe UI Emoji','Noto Color Emoji',sans-serif;line-height:1}
+.scene{position:absolute;inset:0;opacity:0}
+
+#hook{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center}
+#hook .big{font-size:84px;line-height:.98;letter-spacing:-1px}
+#hook .big i{color:#8a6a4f}
+#hook .hsub{margin-top:26px;font-size:20px;color:rgba(21,20,15,.6);font-weight:500;font-family:Inter,system-ui,sans-serif}
+
+/* Stop-motion */
+#sm .hd{left:28px;top:66px;font-size:30px;line-height:1}
+#sm .cn{right:28px;top:72px;font-size:16px;font-weight:600;font-variant-numeric:tabular-nums;background:#e6dfd0;padding:7px 16px;border-radius:999px}
+#sm .ph{left:0;top:128px;width:576px;height:768px;overflow:hidden;background:#d8d2c4}
+#sm .ph img{position:absolute;inset:0;width:576px;height:768px;display:none}
+#chip{left:0;right:0;top:920px;text-align:center}
+#chip span{display:inline-block;background:#15140f;color:#f7f4ee;font-size:24px;font-weight:600;padding:12px 26px;border-radius:999px}
+#done{left:0;right:0;top:906px;text-align:center;font-size:62px;line-height:1;opacity:0}
+#done i{color:#8a6a4f}
+#stamp{right:26px;top:150px;font-size:26px;font-weight:700;padding:9px 20px;border-radius:14px;background:#15140f;color:#f7f4ee;opacity:0;letter-spacing:.02em;box-shadow:0 10px 24px rgba(20,18,12,.3)}
+
+/* App */
+#app .tt{left:0;right:0;top:92px;text-align:center;font-size:54px;line-height:1}
+#app .tx{left:48px;right:48px;top:162px;text-align:center;font-size:19px;line-height:1.4;font-weight:500;color:rgba(21,20,15,.72)}
+.fld{position:absolute;left:48px;right:48px;height:54px;border-radius:16px;background:#fffdf8;border:1px solid rgba(21,20,15,.12);box-shadow:0 6px 16px rgba(20,18,12,.07);display:flex;align-items:center;justify-content:space-between;padding:0 20px;font-size:17px}
+.fld b{font-weight:600}.fld span{color:rgba(21,20,15,.5);font-size:14px;letter-spacing:.04em}
+#f1{top:268px}#f2{top:334px}
+#btn{left:48px;right:48px;top:406px;height:58px;border-radius:999px;background:#15140f;color:#f7f4ee;font-size:19px;font-weight:600;display:flex;align-items:center;justify-content:center;box-shadow:0 8px 20px rgba(20,18,12,.2)}
+#res{left:0;right:0;top:488px;opacity:0}
+#res .lb{position:absolute;left:48px;top:0;font-size:12px;color:#8a6a4f}
+#cards{position:absolute;left:48px;top:30px;width:480px;height:92px}
+.cd{position:absolute;top:0;width:108px;height:92px;border-radius:18px;display:flex;align-items:center;justify-content:center;box-shadow:0 6px 16px rgba(20,18,12,.1);opacity:0}
+.cd .e{font-size:52px}
+#res .lb2{position:absolute;left:48px;top:140px;font-size:12px;color:#8a6a4f}
+.row{position:absolute;left:48px;right:48px;height:48px;border-radius:14px;background:#fffdf8;border:1px solid rgba(21,20,15,.1);display:flex;align-items:center;padding:0 18px;font-size:16px;font-weight:600;opacity:0}
+.row .e{margin-left:auto;font-size:28px}
+#cap{left:20px;right:20px;top:918px;text-align:center;font-size:44px;line-height:1.02;opacity:0;text-wrap:balance}
+#cap i{color:#8a6a4f}
+
+#cursor{position:absolute;width:62px;height:62px;border-radius:50%;margin:-31px 0 0 -31px;background:rgba(21,20,15,.18);border:2px solid rgba(21,20,15,.55);opacity:0;z-index:30}
+
+#end{position:absolute;inset:0;background:#0e0d0a;opacity:0;text-align:center}
+#end .w{left:0;right:0;top:330px;font-size:78px;line-height:1;color:#fff;white-space:nowrap}
+#end .w i{color:#c9a178}
+#end .u{left:0;right:0;top:560px;font-size:23px;color:#c9a178;font-weight:600;letter-spacing:.02em}
+#end .s{left:0;right:0;top:622px;font-size:14px;letter-spacing:.55em;color:rgba(255,255,255,.7);font-weight:600;padding-left:.55em}
+</style></head>
+<body>
+<div id="stage">
+  <div id="bg"></div>
+
+  <div id="hook"><div class="big serif">¿Te vas<br><i>de viaje?</i></div><div class="hsub">Dile adónde vas.</div></div>
+
+  <div class="scene" id="sm">
+    <div class="abs serif hd">Maleta de cabina</div>
+    <div class="abs cn" id="cn">1 de 9</div>
+    <div class="abs ph" id="ph"></div>
+    <div class="abs" id="chip"><span id="chipT">Maleta vacía</span></div>
+    <div class="abs serif" id="done">Lista para <i>viajar.</i></div>
+    <div class="abs" id="stamp">Lista ✓</div>
+  </div>
+
+  <div class="scene" id="app">
+    <div class="abs serif tt">La maleta</div>
+    <div class="abs tx">Dime adónde vas y cuántos días. Te digo qué meter y qué te pones cada día.</div>
+    <div class="fld" id="f1"><span>Destino</span><b>Lisboa</b></div>
+    <div class="fld" id="f2"><span>Días</span><b>4</b></div>
+    <div class="abs" id="btn">Preparar maleta</div>
+    <div class="abs" id="res">
+      <div class="lb mono">Qué meter</div>
+      <div id="cards"></div>
+      <div class="lb2 mono">Cada día</div>
+      <div id="rows"></div>
+    </div>
+  </div>
+
+  <div class="abs serif" id="cap"></div>
+
+  <div id="end">
+    <div class="abs serif w">Haz la maleta<br><i>con tu armario.</i></div>
+    <div class="abs u">socly-style.vercel.app</div>
+    <div class="abs s">SOCLY STYLE</div>
+  </div>
+
+  <div id="cursor"></div>
+</div>
+<script src="maleta.js"></script>
+</body></html>

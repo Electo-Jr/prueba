@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="es"><head><meta charset="utf-8">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{width:1080px;height:1920px;overflow:hidden;background:#000}
+#stage{position:relative;width:1080px;height:1920px;background:#000;overflow:hidden}
+.c{position:absolute;left:0;width:1080px;text-align:center;opacity:0;will-change:transform,opacity}
+#logo{top:640px}
+#logo img{width:300px;display:block;margin:0 auto}
+#name{top:960px;font-family:'Instrument Serif',Georgia,serif;font-size:132px;line-height:1;letter-spacing:.07em;color:#fff;text-transform:uppercase}
+#line{position:absolute;left:480px;top:1130px;width:120px;height:2px;background:#fff;opacity:0;transform-origin:center}
+#bio{top:1190px;font-family:Inter,Arial,sans-serif;font-weight:500;font-size:44px;letter-spacing:.2em;color:rgba(255,255,255,.88);text-transform:uppercase}
+</style></head>
+<body><div id="stage">
+<div id="logo" class="c"><img src="logo-blanco.png"></div>
+<div id="name" class="c">Socly Style</div>
+<div id="line"></div>
+<div id="bio" class="c">Enlace en la bio</div>
+</div>
+<script>
+const clamp = (x, a = 0, b = 1) => Math.min(b, Math.max(a, x));
+const back = (x) => { const c1 = 1.2, c3 = c1 + 1; const t = clamp(x) - 1; return 1 + c3 * t * t * t + c1 * t * t; };
+const ease = (x) => { const t = clamp(x); return t * t * (3 - 2 * t); };
+
+// Pantalla final: el logo entra con un rebote suave, luego el nombre, la raya y «enlace en la bio».
+function render(t) {
+  const logo = document.getElementById('logo');
+  const a = clamp(t / 0.45);
+  logo.style.opacity = ease(a);
+  logo.style.transform = `scale(${0.86 + 0.14 * back(a)})`;
+
+  const name = document.getElementById('name');
+  const n = clamp((t - 0.25) / 0.45);
+  name.style.opacity = ease(n);
+  name.style.transform = `translateY(${(1 - ease(n)) * 22}px)`;
+
+  const line = document.getElementById('line');
+  const l = clamp((t - 0.55) / 0.35);
+  line.style.opacity = ease(l);
+  line.style.transform = `scaleX(${ease(l)})`;
+
+  const bio = document.getElementById('bio');
+  const b = clamp((t - 0.7) / 0.45);
+  bio.style.opacity = ease(b);
+  bio.style.transform = `translateY(${(1 - ease(b)) * 16}px)`;
+}
+</script>
+</body></html>

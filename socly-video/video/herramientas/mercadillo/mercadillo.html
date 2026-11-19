@@ -1,0 +1,418 @@
+<!doctype html>
+<html lang="es"><head><meta charset="utf-8">
+<meta name="viewport" content="width=576,height=1024">
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif&display=block" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{width:576px;height:1024px;overflow:hidden;background:#F4F1EA}
+body{font-family:Arial,Helvetica,sans-serif;color:#15140F;position:relative}
+#stage{position:absolute;inset:0;overflow:hidden}
+#bg{position:absolute;inset:0;background:radial-gradient(90% 62% at 2% 0%,rgba(211,168,124,.5),rgba(0,0,0,0) 74%),radial-gradient(85% 58% at 100% 14%,rgba(182,150,160,.42),rgba(0,0,0,0) 74%),radial-gradient(95% 55% at 40% 100%,rgba(205,190,160,.35),rgba(0,0,0,0) 74%),#F4F1EA}
+.abs{position:absolute}
+.tb{position:absolute;left:0;width:576px;text-align:center;font-weight:700;line-height:1.12;transform:translateY(-50%);padding:0 24px}
+.tb span{display:inline-block;margin:0 .13em;white-space:nowrap}
+.flash{position:absolute;inset:0;display:none}
+.flash img{position:absolute;left:50%;top:50%;width:400px;margin:-300px 0 0 -200px}
+.card{position:absolute;width:236px;height:306px;margin:-153px 0 0 -118px;border-radius:22px;box-shadow:0 18px 40px rgba(20,18,12,.28),0 2px 6px rgba(20,18,12,.18);display:none;overflow:hidden}
+.card img{position:absolute;left:50%;top:50%;width:170px;height:240px;margin:-120px 0 0 -85px;object-fit:contain}
+.card .t{position:absolute;right:14px;top:14px;background:#E2C9A6;border:1px solid #8A6A4F;color:#4d3a28;font-size:15px;padding:3px 9px;border-radius:3px 3px 9px 9px;font-weight:700}
+.msg{position:absolute;font-weight:700;white-space:nowrap;transform:translate(-50%,-50%);display:none}
+#phone{position:absolute;left:0;top:0;width:262px;height:540px;margin:-270px 0 0 -131px;border-radius:42px;background:#111;padding:9px;box-shadow:0 34px 70px rgba(20,18,12,.32),inset 0 0 0 2px #34322c;display:none}
+.screen{position:relative;width:244px;height:522px;border-radius:33px;overflow:hidden;background:radial-gradient(90% 40% at 2% 0%,rgba(211,168,124,.5),rgba(0,0,0,0) 74%),radial-gradient(85% 38% at 100% 10%,rgba(182,150,160,.42),rgba(0,0,0,0) 74%),#F4F1EA}
+.notch{position:absolute;top:9px;left:50%;width:74px;height:21px;margin-left:-37px;background:#111;border-radius:12px;z-index:20}
+.sc{position:absolute;inset:0;display:none}
+.in{position:absolute;left:0;right:0;top:38px;bottom:0}
+.tagbig{position:absolute;background:#E2C9A6;border:2px solid #8A6A4F;color:#4d3a28;font-weight:700;font-size:30px;padding:8px 20px;border-radius:5px 5px 16px 16px;display:none;white-space:nowrap}
+.av{position:absolute;width:64px;height:64px;margin:-32px 0 0 -32px;border-radius:50%;color:#fff;font-weight:700;font-size:28px;display:none;align-items:center;justify-content:center;border:3px solid #F4F1EA;box-shadow:0 4px 10px rgba(20,18,12,.25)}
+.back{position:absolute;left:16px;top:4px;font-size:9px;color:rgba(21,20,15,.55)}
+.cap{position:absolute;left:16px;font-family:ui-monospace,Menlo,'Courier New',monospace;font-size:7.5px;letter-spacing:1.6px;text-transform:uppercase;color:rgba(21,20,15,.45);white-space:nowrap}
+.ttl{position:absolute;left:16px;font-family:'Instrument Serif',Georgia,serif;font-size:31px;letter-spacing:-.3px;line-height:1;white-space:nowrap}
+.sub{position:absolute;left:16px;font-size:9px;color:rgba(21,20,15,.55);white-space:nowrap}
+.pl{position:absolute;height:24px;border-radius:99px;font-size:9px;font-weight:700;display:flex;align-items:center;justify-content:center;padding:0 11px;white-space:nowrap}
+.pl.k{background:#15140F;color:#F7F4EE}
+.pl.w{background:rgba(255,255,255,.55);border:1px solid rgba(21,20,15,.12);color:rgba(21,20,15,.75)}
+.bunt{position:absolute;display:flex;height:30px;background:rgba(239,233,221,.7)}
+.bunt i{flex:1;clip-path:polygon(0 0,100% 0,50% 100%)}
+.sign{position:absolute;left:50%;transform:translateX(-50%);background:#F7F4EE;border:1px solid #15140F;font-weight:700;font-size:10px;padding:2px 10px;border-radius:6px;white-space:nowrap}
+.rack{position:absolute;height:3px;background:#8A6A4F;border-radius:2px}
+.it{position:absolute;width:66px;height:112px;transform-origin:50% 0}
+.it .ph{position:absolute;left:5px;top:12px;width:56px;height:70px;background:#E2DDD1;box-shadow:0 3px 6px rgba(20,18,12,.18)}
+.it img{position:absolute;left:8px;top:14px;width:50px;height:66px;object-fit:contain}
+.it .h{position:absolute;left:25px;top:0;width:16px;height:13px;border:2px solid #15140F;border-bottom:none;border-radius:8px 8px 0 0}
+.it .nm{position:absolute;left:-6px;right:-6px;top:84px;text-align:center;font-size:8px;font-weight:700;line-height:1.15}
+.it .tg{position:absolute;right:-6px;top:6px;background:#E2C9A6;border:1px solid #8A6A4F;font-size:8px;font-weight:700;padding:1px 5px;border-radius:2px 2px 6px 6px;color:#4d3a28;transform:rotate(6deg)}
+.pbtn{position:absolute;left:14px;right:14px;height:34px;border-radius:99px;font-weight:700;font-size:12px;display:flex;align-items:center;justify-content:center}
+.pbtn.k{background:#15140F;color:#F7F4EE}
+.pbtn.w{background:rgba(255,255,255,.85);border:1px solid rgba(21,20,15,.1);box-shadow:0 3px 8px rgba(20,18,12,.1);color:#15140F}
+.gc{position:absolute;top:0;width:66px;border-radius:12px;border:1.5px solid rgba(21,20,15,.12);background:rgba(255,255,255,.4);padding:5px 4px 4px;text-align:center;font-size:8px;font-weight:700;line-height:1.15}
+.gc .im{height:52px;background:#E2DDD1;position:relative;margin-bottom:4px}
+.gc .im img{position:absolute;left:8px;top:2px;width:50px;height:48px;object-fit:contain}
+.gc small{display:block;font-weight:400;color:rgba(21,20,15,.5);font-size:7.5px;margin-top:2px}
+.ch{position:absolute;height:26px;border-radius:99px;font-size:10px;font-weight:700;display:flex;align-items:center;justify-content:center;padding:0 13px;border:1.5px solid rgba(21,20,15,.15);background:rgba(255,255,255,.4)}
+.ch.on{background:#15140F;color:#F7F4EE;border-color:#15140F}
+.row{position:absolute;left:14px;right:14px;height:42px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid rgba(21,20,15,.12);font-size:12px;font-weight:700}
+.row small{display:block;font-size:8.5px;color:rgba(21,20,15,.5);font-weight:400}
+.chip{background:#15140F;color:#F7F4EE;font-weight:700;font-size:9.5px;padding:6px 11px;border-radius:99px}
+.rip{position:absolute;width:44px;height:44px;margin:-22px 0 0 -22px;border-radius:50%;background:rgba(21,20,15,.18);border:2px solid rgba(21,20,15,.35);display:none;z-index:25}
+.navb{position:absolute;left:30px;right:30px;bottom:12px;height:40px;border-radius:99px;background:rgba(255,255,255,.92);box-shadow:0 6px 16px rgba(20,18,12,.16);display:flex;align-items:center;justify-content:space-around;z-index:18;padding:0 8px}
+.navb svg{width:15px;height:15px;stroke:rgba(21,20,15,.55);fill:none;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
+.navb .c{width:34px;height:34px;border-radius:50%;background:#15140F;display:flex;align-items:center;justify-content:center;margin-top:-4px}
+.navb .c svg{stroke:#fff}
+#logo{position:absolute;left:0;width:576px;display:none;align-items:center;justify-content:center;gap:16px;transform-origin:50% 50%}
+#logo .tile{width:112px;height:112px;border-radius:28px;background:#F3EDE1;border:2px solid #15140F;position:relative;overflow:hidden}
+#logo .tile img{position:absolute;left:-6px;top:-6px;width:124px;height:124px;mix-blend-mode:multiply}
+#logo .w{font-family:'Instrument Serif',Georgia,serif;font-size:84px;letter-spacing:-1.5px}
+#cta{position:absolute;left:50%;top:640px;transform:translateX(-50%);background:#15140F;color:#F7F4EE;font-weight:700;font-size:25px;letter-spacing:1.5px;padding:15px 30px;border-radius:99px;display:none;white-space:nowrap}
+#black{position:absolute;inset:0;background:#000;display:none}
+#black i{position:absolute;left:50%;top:50%;width:16px;height:10px;margin:-5px 0 0 -8px;background:#fff}
+#fade{position:absolute;inset:0;background:radial-gradient(90% 62% at 2% 0%,rgba(211,168,124,.5),rgba(0,0,0,0) 74%),radial-gradient(85% 58% at 100% 14%,rgba(182,150,160,.42),rgba(0,0,0,0) 74%),radial-gradient(95% 55% at 40% 100%,rgba(205,190,160,.35),rgba(0,0,0,0) 74%),#F4F1EA;opacity:0;pointer-events:none}
+</style></head>
+<body>
+<div id="stage">
+  <div id="bg"></div>
+  <div id="flashes"></div>
+  <div id="cards"></div>
+  <div id="msgs"></div>
+  <div id="phone"><div class="screen"><div class="notch"></div>
+    <div class="sc" id="sc-colgar"></div>
+    <div class="sc" id="sc-puesto"></div>
+    <div class="sc" id="sc-calle"></div>
+    <div class="sc" id="sc-detalle"></div>
+    <div class="sc" id="sc-avisos"></div>
+    <div class="navb">
+      <svg viewBox="0 0 24 24"><path d="M3 11l9-8 9 8v9a1 1 0 0 1-1 1h-5v-6h-6v6H4a1 1 0 0 1-1-1z"/></svg>
+      <svg viewBox="0 0 24 24"><path d="M12 7a2 2 0 1 0-2-2M12 7v2L3 16h18z"/></svg>
+      <div class="c"><svg viewBox="0 0 24 24"><path d="M12 3l2 6 6 2-6 2-2 6-2-6-6-2 6-2z"/></svg></div>
+      <svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="3"/><circle cx="17" cy="9" r="2.4"/><path d="M3 20c0-3 3-5 6-5s6 2 6 5M16 15c3 0 5 1.6 5 4"/></svg>
+      <svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-6 8-6s8 2 8 6"/></svg>
+    </div>
+    <div class="rip" id="rip"></div>
+  </div></div>
+  <div id="blocks"></div>
+  <div id="logo"><div class="tile"><img src="assets/cat/wave.png"></div><div class="w">Mercadillo</div></div>
+  <div id="cta">ENLACE EN LA BIO</div>
+  <div id="black"><i></i></div>
+  <div id="fade"></div>
+</div>
+<script>
+const INK = '#15140F', GRAY = '#9C988E';
+const clamp = (x, a = 0, b = 1) => Math.min(b, Math.max(a, x));
+const E = {
+  lin: (t) => t, out: (t) => 1 - Math.pow(1 - t, 3), in: (t) => t * t * t,
+  io: (t) => (t < .5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2),
+  back: (t) => { const c = 1.70158; return 1 + (c + 1) * Math.pow(t - 1, 3) + c * Math.pow(t - 1, 2); },
+};
+const P = (t, a, b, e = E.lin) => e(clamp((t - a) / (b - a)));
+function kf(t, fr, e = E.out) {
+  if (t <= fr[0][0]) return fr[0][1];
+  for (let i = 0; i < fr.length - 1; i++) {
+    if (t < fr[i + 1][0]) { const [a, va] = fr[i], [b, vb] = fr[i + 1]; return va + (vb - va) * e((t - a) / (b - a)); }
+  }
+  return fr[fr.length - 1][1];
+}
+const hex = (h) => [1, 3, 5].map((i) => parseInt(h.slice(i, i + 2), 16));
+const mix = (a, b, p) => { const A = hex(a), B = hex(b); return `rgb(${A.map((v, i) => Math.round(v + (B[i] - v) * p)).join(',')})`; };
+function mk(html, parent) { const d = document.createElement('div'); d.innerHTML = html.trim(); const e = d.firstChild; parent.appendChild(e); return e; }
+const $ = (id) => document.getElementById(id);
+function rng(seed) { return () => { seed |= 0; seed = (seed + 0x6D2B79F5) | 0; let t = Math.imul(seed ^ (seed >>> 15), 1 | seed); t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) ^ t; return ((t ^ (t >>> 14)) >>> 0) / 4294967296; }; }
+const G = (n) => `assets/garments/${n}.svg`;
+
+// ---------- bloques de texto (palabra a palabra, con desenfoque) ----------
+const blocks = [];
+function TB(o) {
+  const el = mk(`<div class="tb" style="font-size:${o.size || 50}px;${o.font ? `font-family:${o.font};` : ''}"></div>`, $('blocks'));
+  const spans = [];
+  o.words.forEach((w) => {
+    if (w === '\n') { el.appendChild(document.createElement('br')); return; }
+    const s = document.createElement('span'); s.textContent = w; el.appendChild(s);
+    spans.push({ s, t: o.times ? o.times[spans.length] : o.t0 + spans.length * (o.step || .28) });
+  });
+  blocks.push({ el, spans, o });
+}
+function updBlock(b, t) {
+  const o = b.o, vis = t >= o.t0 && t < o.t1;
+  b.el.style.display = vis ? 'block' : 'none';
+  if (!vis) return;
+  const y = typeof o.y === 'function' ? o.y(t) : (o.y ?? 512);
+  b.el.style.top = y + 'px';
+  for (const { s, t: tw } of b.spans) {
+    const p = E.out(clamp((t - tw) / .22));
+    s.style.opacity = p;
+    s.style.filter = p < 1 ? `blur(${((1 - p) * 7).toFixed(2)}px)` : 'none';
+    s.style.transform = `translateY(${((1 - p) * 10).toFixed(2)}px)`;
+    s.style.color = p < 1 ? mix(GRAY, INK, p) : INK;
+  }
+}
+
+// 1) gancho
+TB({ words: ['¿Qué', 'haces', 'con', '\n', 'la', 'ropa', 'que', '\n', 'ya', 'no', 'usas?'], t0: 0.1, t1: 3.1, step: .27, size: 58 });
+// 3) texto que sube y se alarga mientras entran las tarjetas
+TB({
+  words: ['Subirla', 'a', 'Vinted.', '\n', 'Hacer', 'fotos,', 'escribir', 'la', 'descripción', '\n', 'y', 'esperar.'],
+  times: [4.5, 4.8, 5.1, 6.05, 6.35, 6.65, 6.9, 7.1, 7.4, 7.65], t0: 4.5, t1: 9.1, size: 50,
+  y: (t) => kf(t, [[5.55, 512], [6.05, 160]], E.io),
+});
+// 5) caps + frase
+TB({ words: ['ANTES', 'DE', '\n', 'VINTED'], times: [12.3, 12.55, 12.85], t0: 12.25, t1: 14.0, size: 92, font: "'Arial Black',Arial", y: 500 });
+TB({ words: ['Ofrécela', 'a', 'tus', 'amigos.'], t0: 14.05, t1: 15.7, step: .3, size: 58 });
+TB({ words: ['Por', 'eso', 'existe'], t0: 15.75, t1: 16.55, step: .25, size: 58 });
+TB({ words: ['El', 'mercadillo', 'entre', 'amigos.'], t0: 17.05, t1: 18.0, step: .22, size: 40, y: 600 });
+// 7) fase del móvil
+TB({ words: ['Cuelga', 'lo', 'que', '\n', 'ya', 'no', 'usas.'], t0: 18.3, t1: 20.45, step: .28, size: 52, y: 150 });
+TB({ words: ['Tus', 'amigos', '\n', 'lo', 'ven.'], t0: 20.5, t1: 21.85, step: .26, size: 52, y: 150 });
+TB({ words: ['Y', 'piden', '\n', '«La', 'quiero».'], t0: 21.9, t1: 23.45, step: .26, size: 52, y: 150 });
+TB({ words: ['Tú', 'eliges', '\n', 'a', 'quién.'], t0: 23.5, t1: 25.5, step: .26, size: 52, y: 150 });
+// 8) ventajas
+TB({ words: ['Regálala', '\n', 'o', 'ponle', 'precio.'], t0: 25.75, t1: 26.95, step: .24, size: 62 });
+TB({ words: ['Sin', 'comisiones.', '\n', 'Sin', 'envíos.'], t0: 26.95, t1: 28.15, step: .24, size: 62 });
+TB({ words: ['Solo', 'lo', 've', '\n', 'tu', 'círculo.'], t0: 28.15, t1: 29.25, step: .22, size: 62 });
+TB({ words: ['Ya', 'en', 'Socly', 'Style'], t0: 29.7, t1: 31.9, step: .24, size: 38, y: 580 });
+
+// ---------- 2) destellos de prendas ----------
+const FL = [['coat', '#EADBB9'], ['dress', '#C9D8CB'], ['jeans', '#E7C9C3'], ['knit', '#C6CFE2']];
+FL.forEach(([g, c]) => mk(`<div class="flash" style="background:${c}"><img src="${G(g)}"></div>`, $('flashes')));
+
+// ---------- 4) tarjetas apiladas ----------
+const CARDS = [
+  { g: 'dress', c: '#E8D9BC', rot: -6, tg: 'Regalo', t: 6.1, x: 270, y: 640 },
+  { g: 'bag', c: '#CBD9CC', rot: 5, tg: '12 €', t: 6.9, x: 308, y: 622 },
+  { g: 'scarf', c: '#E6CAC4', rot: -3, tg: 'Regalo', t: 7.7, x: 276, y: 606 },
+  { g: 'knit', c: '#C8D0E2', rot: 7, tg: '15 €', t: 8.5, x: 302, y: 592 },
+];
+CARDS.forEach((c) => { c.el = mk(`<div class="card" style="background:${c.c}"><img src="${G(c.g)}"><div class="t">${c.tg}</div></div>`, $('cards')); });
+
+// ---------- 5) pila de mensajes ----------
+const MSGS = ['¿Sigue disponible?', '¿Me haces rebaja?', '¿Última oferta?', '¿Envío o en mano?', '¿Talla real?', '¿Me lo reservas?', '¿Lo cambias?', 'Hola', '¿Hay más fotos?', '¿Sigues ahí?', '¿Lo dejas más barato?', '¿Está nuevo?', '¿Algún defecto?', '¿Me lo mandas hoy?', '¿Aceptas 5 €?', 'Te pago mañana', '¿Disponible?', '¿Y de largo?', '¿Lo guardas?', '¿Contestas?', 'Hola??', '¿Sigue ahí?'];
+const R = rng(7);
+let tm = 9.1, gap = .42;
+const PILE = MSGS.map((m, i) => {
+  const size = 20 + Math.round(R() * 18) + (i > 14 ? 6 : 0);
+  const el = mk(`<div class="msg" style="font-size:${size}px">${m}</div>`, $('msgs'));
+  const place = i < 3 ? [288 + (i - 1) * 8, 470 + (i - 1) * 62] : [40 + R() * 496, 90 + R() * 850];
+  const o = { el, x: place[0], y: place[1], t: tm, ph: R() * 6 };
+  tm += gap; gap *= .86;
+  return o;
+});
+
+// ---------- móvil: pantallas (con el diseño real de la app) ----------
+const BUNT = (c, n = 9) => Array.from({ length: n }, (_, i) => `<i style="background:${i % 2 ? '#FFFDF8' : c}"></i>`).join('');
+const HEAD = (title, top = 0) => `<div class="back" style="top:${top + 2}px">← mercadillo</div><div class="cap" style="top:${top + 16}px">Tu círculo</div><div class="ttl" style="top:${top + 26}px">${title}</div>`;
+const HANGER = (id, left, top, img, tag, name, talla) => `<div id="${id}" class="it" style="left:${left}px;top:${top}px"><div class="h"></div><div class="ph"></div><img src="${G(img)}"><div class="tg">${tag}</div><div class="nm">${name}<br><span style="font-weight:400;color:rgba(21,20,15,.55)">${talla}</span></div></div>`;
+
+$('sc-colgar').innerHTML = `
+  ${HEAD('Colgar')}
+  <div class="cap" style="top:76px">1 · elige una prenda de tu armario</div>
+  <div class="sub" style="top:88px">Primero salen las que no usas.</div>
+  <div style="position:absolute;left:14px;top:108px;width:230px;height:104px">
+    <div id="gc0" class="gc" style="left:0"><div class="im"><img src="${G('knit')}"></div>Jersey de lana<small id="gs0">Sin usar</small></div>
+    <div id="gc1" class="gc" style="left:74px"><div class="im"><img src="${G('jeans')}"></div>Vaqueros<small>Sin usar</small></div>
+    <div id="gc2" class="gc" style="left:148px"><div class="im"><img src="${G('scarf')}"></div>Bufanda<small>Sin usar</small></div>
+  </div>
+  <div class="cap" style="top:232px">2 · ¿cómo la ofreces?</div>
+  <div id="ch0" class="ch" style="left:14px;top:246px">Regalo</div>
+  <div id="ch2" class="ch" style="left:70px;top:246px">Precio</div>
+  <div class="cap" style="top:288px">3 · talla</div>
+  <div class="ch" style="left:14px;top:302px;padding:0 9px">S</div><div class="ch on" style="left:44px;top:302px;padding:0 9px">M</div><div class="ch" style="left:78px;top:302px;padding:0 9px">L</div><div class="ch" style="left:108px;top:302px;padding:0 9px">XL</div>
+  <div id="b-colgar" class="pbtn k" style="top:352px">Colgar en mi puesto</div>`;
+$('sc-puesto').innerHTML = `
+  ${HEAD('Mi puesto')}
+  <div class="sub" style="top:62px">Solo lo ve tu círculo</div>
+  <div class="bunt" style="left:14px;right:14px;top:80px">${BUNT('#8A6A4F', 9)}</div>
+  <div class="sign" style="top:104px">Mi puesto</div>
+  <div class="rack" style="left:14px;right:14px;top:136px;height:4px"></div>
+  ${HANGER('pi0', 20, 134, 'knit', 'Regalo', 'Jersey de lana', 'Talla M')}
+  ${HANGER('pi1', 88, 134, 'jeans', '14 €', 'Vaqueros', 'Talla 38')}
+  ${HANGER('pi2', 156, 134, 'scarf', 'Regalo', 'Bufanda', 'Única')}
+  <div class="sub" style="top:268px">3 prendas</div>`;
+const STALLS = [['Marta', '#8A6A4F', ['knit', 'jeans']], ['Iván', '#9A8A28', ['coat', 'bag']], ['Lucía', '#4A7A8A', ['dress', 'scarf']], ['Dani', '#5E8A6E', ['jeans', 'knit']]];
+$('sc-calle').innerHTML = `
+  ${HEAD('Mercadillo')}
+  <div class="pl k" style="left:14px;top:62px">Colgar prenda</div><div class="pl w" style="left:94px;top:62px">Mis cosas</div><div class="pl w" style="left:154px;top:62px">Avisos</div>
+  <div class="pl w" style="left:14px;top:94px">Regalo</div><div class="pl w" style="left:58px;top:94px">Precio</div><div class="pl w" style="left:106px;top:94px">Jersey</div>
+  <div id="street" class="abs" style="left:0;top:126px;width:900px;height:280px">
+  ${STALLS.map(([n, c, gs], i) => `
+    <div class="abs" style="left:${14 + i * 168}px;top:0;width:156px;height:280px">
+      <div class="bunt" style="left:0;right:0;top:0;height:26px">${BUNT(c, 7)}</div>
+      <div class="sign" style="top:22px">${n}</div>
+      <div class="rack" style="left:6px;right:6px;top:62px;height:4px"></div>
+      ${gs.map((g, k) => `<div class="it" style="left:${16 + k * 66}px;top:60px;width:62px;height:90px"><div class="h" style="left:23px"></div><div class="ph" style="left:3px;width:54px;height:60px"></div><img style="left:6px;width:48px;height:56px" src="${G(g)}"></div>`).join('')}
+      <div class="sub" style="left:0;right:0;top:160px;text-align:center">${gs.length} prendas</div>
+      <div class="pbtn w" style="left:8px;right:8px;top:178px;height:28px;font-size:10px">${i === 0 ? 'Abrir mi puesto' : 'Entrar'}</div>
+    </div>`).join('')}
+  </div>`;
+$('sc-detalle').innerHTML = `
+  ${HEAD('Marta')}
+  <div class="abs" style="left:16px;right:16px;top:64px;height:196px;background:#E2DDD1;box-shadow:0 5px 12px rgba(20,18,12,.18);overflow:hidden">
+    <div class="it" style="left:62px;top:4px;width:104px;height:190px"><div class="h" style="left:44px;width:18px"></div><img style="left:6px;top:16px;width:92px;height:160px" src="${G('knit')}"><div class="tg" style="right:-16px;top:26px;font-size:11px;padding:2px 8px">Regalo</div></div>
+    <div id="stamp" class="abs" style="left:50%;top:50%;width:96px;height:96px;margin:-48px 0 0 -48px;border-radius:50%;background:#E2C9A6;border:3px solid #4d3a28;color:#3a2a1a;font-weight:900;font-size:17px;display:none;align-items:center;justify-content:center;text-align:center;line-height:1.05;font-family:'Arial Black',Arial">¡La<br>quiero!</div>
+    <div id="ribbon" class="abs" style="left:-40px;top:24px;width:150px;transform:rotate(-35deg);text-align:center;background:#F7F4EE;border-top:1px solid #8A6A4F;border-bottom:1px solid #8A6A4F;font-size:9px;font-weight:700;letter-spacing:1px;padding:3px 0;display:none">RESERVADA</div>
+  </div>
+  <div class="abs" style="left:16px;top:274px;font-weight:700;font-size:15px">Jersey de lana</div>
+  <div class="abs" style="left:16px;top:296px;font-size:10.5px;line-height:1.5;color:rgba(21,20,15,.65)">Talla M · buen estado<br>De Marta</div>
+  <div id="b-want" class="pbtn k" style="top:340px">La quiero</div>
+  <div id="b-done" class="pbtn w" style="top:340px;display:none">Reservada · en cola</div>`;
+$('sc-avisos').innerHTML = `
+  ${HEAD('Avisos')}
+  <div class="cap" style="top:68px">Quieren tu prenda</div>
+  <div class="abs" style="left:16px;top:82px;font-weight:700;font-size:13px">Jersey de lana</div>
+  <div class="sub" style="top:100px">3 personas la quieren</div>
+  <div class="row" style="top:122px"><div>Iván<small>hace 2 h</small></div><span class="chip">Elegir</span></div>
+  <div class="row" style="top:166px"><div>Lucía<small>hace 1 h</small></div><span id="chip-l" class="chip">Elegir</span></div>
+  <div class="row" style="top:210px"><div>Dani<small>hace 20 min</small></div><span class="chip">Elegir</span></div>
+  <div id="agree" class="abs" style="left:16px;right:16px;top:262px;font-size:10.5px;line-height:1.45;color:rgba(21,20,15,.7);display:none">Se la quedas a <b>Lucía</b>. Quedad en un sitio público y acordad la entrega por WhatsApp.</div>
+  <div id="b-q" class="pbtn k" style="top:330px;display:none">Quedamos</div>`;
+document.querySelectorAll('.sc').forEach((sc) => { sc.innerHTML = `<div class="in">${sc.innerHTML}</div>`; });
+const pitems = [0, 1, 2].map((i) => $('pi' + i));
+// adornos de las ventajas
+const TAGS = [['Regalo', 190, 690, 26.0], ['14 €', 340, 700, 26.25]].map(([t, x, y, a]) => { const el = mk(`<div class="tagbig" style="left:${x}px;top:${y}px">${t}</div>`, $('blocks')); return { el, a, x, y }; });
+const AVS = [['T', '#8A6A4F'], ['M', '#9A8A28'], ['I', '#4A7A8A'], ['L', '#5E8A6E']].map(([t, c], i) => { const el = mk(`<div class="av" style="background:${c};left:${168 + i * 80}px;top:690px">${t}</div>`, $('blocks')); return { el, a: 28.45 + i * .14, i }; });
+
+function setScreen(id, t, a, b) {
+  const el = $(id);
+  const on = t >= a - 0.001 && t < b;
+  el.style.display = on ? 'block' : 'none';
+  if (!on) return;
+  const fin = P(t, a, a + .22, E.out), fout = 1 - P(t, b - .18, b);
+  el.style.opacity = Math.min(fin, fout);
+  el.style.transform = `translateX(${(1 - fin) * 26}px)`;
+}
+const SCR = () => document.querySelector('.screen');
+// toque sobre un elemento (coordenadas relativas a la pantalla del móvil, que va a escala 1.12)
+function rippleEl(t, t0, el) {
+  const r = $('rip'), p = (t - t0) / .55;
+  if (p < 0 || p > 1 || !el) return false;
+  const rs = SCR().getBoundingClientRect(), re = el.getBoundingClientRect();
+  r.style.display = 'block';
+  r.style.left = ((re.left + re.width / 2 - rs.left) / 1.12) + 'px';
+  r.style.top = ((re.top + re.height / 2 - rs.top) / 1.12) + 'px';
+  r.style.opacity = 1 - p; r.style.transform = `scale(${0.5 + p * 1.1})`;
+  return true;
+}
+
+// ---------- logo / cierre ----------
+function popEl(el, t, a, y, extra = '') {
+  const p = P(t, a, a + .5, E.back);
+  const vis = t >= a;
+  el.style.display = vis ? (el.id === 'logo' ? 'flex' : 'block') : 'none';
+  if (!vis) return;
+  el.style.top = y + 'px';
+  el.style.opacity = clamp((t - a) / .15);
+  el.style.transform = `${extra}scale(${0.55 + 0.45 * p})`;
+}
+
+window.render = function (t) {
+  blocks.forEach((b) => updBlock(b, t));
+  // destellos
+  const flashes = $('flashes').children;
+  const fi = Math.floor((t - 3.1) / .35);
+  for (let i = 0; i < flashes.length; i++) {
+    const on = t >= 3.1 && t < 4.5 && fi === i;
+    flashes[i].style.display = on ? 'block' : 'none';
+    if (on) { const p = clamp((t - 3.1 - i * .35) / .35); flashes[i].firstChild.style.transform = `scale(${1.14 - .14 * E.out(p)})`; }
+  }
+  // tarjetas
+  CARDS.forEach((c, i) => {
+    const on = t >= c.t && t < 9.1;
+    c.el.style.display = on ? 'block' : 'none';
+    if (!on) return;
+    const p = P(t, c.t, c.t + .5, E.back);
+    const nextT = CARDS[i + 1] ? CARDS[i + 1].t : 99;
+    const sink = P(t, nextT, nextT + .4, E.out);
+    const y = c.y + (1 - p) * 720 - sink * 14;
+    c.el.style.transform = `translate(${c.x}px,${y}px) rotate(${c.rot * (0.4 + .6 * p)}deg) scale(${1 - sink * .03})`;
+    c.el.style.left = '0'; c.el.style.top = '0';
+  });
+  // mensajes
+  PILE.forEach((m) => {
+    const on = t >= m.t && t < 12.0;
+    m.el.style.display = on ? 'block' : 'none';
+    if (!on) return;
+    const p = P(t, m.t, m.t + .22, E.back);
+    const fl = Math.sin(t * 2.2 + m.ph) * 3;
+    m.el.style.left = m.x + 'px';
+    m.el.style.top = (m.y + fl) + 'px';
+    m.el.style.opacity = clamp((t - m.t) / .1);
+    m.el.style.transform = `translate(-50%,-50%) scale(${0.5 + 0.5 * p})`;
+  });
+  // golpe negro
+  $('black').style.display = t >= 12.0 && t < 12.2 ? 'block' : 'none';
+  // logo
+  const logoOn = (t >= 16.5 && t < 18.0) || (t >= 29.3 && t < 31.9);
+  const lg = $('logo');
+  if (logoOn) { const a = t < 20 ? 16.5 : 29.3; popEl(lg, t, a, t < 20 ? 450 : 440); } else lg.style.display = 'none';
+  // CTA
+  const cta = $('cta');
+  if (t >= 30.0 && t < 31.9) popEl(cta, t, 30.0, 650, 'translateX(-50%) '); else cta.style.display = 'none';
+  // móvil
+  const ph = $('phone');
+  const phOn = t >= 18.0 && t < 25.7;
+  ph.style.display = phOn ? 'block' : 'none';
+  if (phOn) {
+    const x = kf(t, [[18.0, 700], [18.8, 288]], E.out);
+    const yy = t < 25.2 ? kf(t, [[18.0, 1150], [18.8, 590]], E.out) : kf(t, [[25.2, 590], [25.7, 1250]], E.in);
+    const rot = kf(t, [[18.0, 16], [18.9, 0]], E.out);
+    ph.style.left = x + 'px'; ph.style.top = yy + 'px';
+    ph.style.transform = `rotate(${rot}deg) scale(1.12)`;
+    setScreen('sc-colgar', t, 18.0, 19.6);
+    setScreen('sc-puesto', t, 19.5, 20.5);
+    setScreen('sc-calle', t, 20.4, 21.95);
+    setScreen('sc-detalle', t, 21.85, 23.5);
+    setScreen('sc-avisos', t, 23.4, 25.7);
+    // colgar: elegir prenda, «Regalo», botón
+    const sel = t >= 18.75;
+    $('gc0').style.borderColor = sel ? '#15140F' : 'rgba(21,20,15,.12)';
+    $('gs0').textContent = sel ? '✓ Elegida' : 'Sin usar';
+    ['ch0'].forEach((id) => { const on = t >= 19.1; $(id).className = 'ch' + (on ? ' on' : ''); });
+    // puesto: las prendas cuelgan una a una
+    const hang = [19.75, 20.0, 20.25];
+    pitems.forEach((el, i) => {
+      const p = P(t, hang[i], hang[i] + .4, E.back);
+      const sw = Math.sin((t - hang[i]) * 7) * 5 * Math.exp(-(t - hang[i]) * 2.2);
+      el.style.opacity = clamp((t - hang[i]) / .1);
+      el.style.transform = `translateY(${(1 - p) * -70}px) rotate(${t >= hang[i] ? sw : 0}deg)`;
+    });
+    // calle: se desliza
+    $('street').style.transform = `translateX(${kf(t, [[20.5, 0], [21.9, -168]], E.io)}px)`;
+    // detalle: sello
+    const sp = t >= 22.45 ? P(t, 22.45, 22.7, E.out) : 0;
+    const st = $('stamp');
+    st.style.display = t >= 22.45 ? 'flex' : 'none';
+    const shake = t >= 22.7 && t < 22.95 ? Math.sin((t - 22.7) * 90) * 3 * (1 - (t - 22.7) / .25) : 0;
+    st.style.transform = `rotate(${-14 + shake}deg) scale(${2.4 - 1.4 * sp})`;
+    st.style.opacity = sp;
+    $('ribbon').style.display = t >= 22.95 ? 'block' : 'none';
+    $('b-want').style.display = t >= 22.7 ? 'none' : 'flex';
+    $('b-done').style.display = t >= 22.7 ? 'flex' : 'none';
+    // avisos: elegir a Lucía y «Quedamos»
+    const chosen = t >= 24.2;
+    $('chip-l').textContent = chosen ? 'Elegida ✓' : 'Elegir';
+    $('chip-l').style.background = chosen ? '#8A6A4F' : INK;
+    $('agree').style.display = chosen ? 'block' : 'none';
+    $('b-q').style.display = t >= 24.35 ? 'flex' : 'none';
+    // toques
+    let rip = false;
+    rip = rippleEl(t, 18.7, $('gc0')) || rip;
+    rip = rippleEl(t, 19.05, $('ch0')) || rip;
+    rip = rippleEl(t, 19.3, $('b-colgar')) || rip;
+    rip = rippleEl(t, 22.3, $('b-want')) || rip;
+    rip = rippleEl(t, 24.15, $('chip-l')) || rip;
+    rip = rippleEl(t, 24.9, $('b-q')) || rip;
+    if (!rip) $('rip').style.display = 'none';
+  }
+  // adornos: etiquetas (regalo / precio) y avatares del círculo
+  TAGS.forEach(({ el, a, x }) => {
+    const on = t >= a && t < 26.95;
+    el.style.display = on ? 'block' : 'none';
+    if (on) { const p = P(t, a, a + .4, E.back); el.style.opacity = clamp((t - a) / .1); el.style.transform = `scale(${.5 + .5 * p}) rotate(${(x < 250 ? -5 : 4) * p}deg)`; }
+  });
+  AVS.forEach(({ el, a }) => {
+    const on = t >= a && t < 29.25;
+    el.style.display = on ? 'flex' : 'none';
+    if (on) { const p = P(t, a, a + .4, E.back); el.style.opacity = clamp((t - a) / .1); el.style.transform = `scale(${.4 + .6 * p})`; }
+  });
+  // desvanecer al final (para que el bucle encaje con el gancho)
+  $('fade').style.opacity = t >= 31.4 ? P(t, 31.4, 31.75) : 0;
+};
+document.fonts.load('31px "Instrument Serif"').then(() => render(0));
+render(0);
+</script></body></html>

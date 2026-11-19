@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="es"><head><meta charset="utf-8">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{width:576px;height:1024px;overflow:hidden;background:#f4f1ea}
+#stage{position:relative;width:576px;height:1024px;overflow:hidden;background:#f4f1ea;font-family:Inter,system-ui,sans-serif;color:#15140f}
+.abs{position:absolute}
+#bg{position:absolute;inset:0;background:
+  radial-gradient(90% 55% at 12% 0%,rgba(226,196,160,.55),transparent 60%),
+  radial-gradient(80% 50% at 100% 100%,rgba(214,192,170,.5),transparent 60%),#f1ece2}
+.serif{font-family:'Instrument Serif',Georgia,serif;font-weight:400}
+.mono{font-family:'Courier New',monospace;letter-spacing:.22em;text-transform:uppercase}
+.emo{font-family:'Segoe UI Emoji','Noto Color Emoji',sans-serif;line-height:1}
+
+#hook{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center}
+#hook .big{font-size:128px;line-height:.94;letter-spacing:-1px}
+#hook .big i{color:#8a6a4f}
+#hook .sub{margin-top:26px;font-size:21px;color:rgba(21,20,15,.6);font-weight:500}
+
+#ui{position:absolute;inset:0;opacity:0}
+#eyebrow{left:0;right:0;top:150px;text-align:center;font-size:12px;color:#8a6a4f}
+#q{left:0;right:0;top:172px;text-align:center;font-size:58px;line-height:1}
+#prog{left:30px;right:30px;top:244px;height:20px;display:flex;align-items:center;gap:12px}
+#prog .n{font-size:11px;letter-spacing:.12em;white-space:nowrap;color:rgba(21,20,15,.55);width:74px;font-variant-numeric:tabular-nums}
+#prog .bar{flex:1;height:3px;border-radius:3px;background:#dcd6c8;overflow:hidden}
+#prog .bar i{display:block;height:100%;width:0;background:#8a6a4f;border-radius:3px}
+
+.board{position:absolute;top:282px;width:270px;height:338px;border-radius:22px;background:#dcd8ce;border:2px solid transparent;overflow:hidden;box-shadow:0 10px 26px rgba(20,18,12,.10)}
+#bL{left:12px}#bR{left:294px}
+.board .g{position:absolute;left:0;right:0;text-align:center}
+.board .g.t{top:8px;font-size:96px}
+.board .g.b{top:108px;font-size:112px}
+.board .g.s{top:236px;font-size:66px}
+.board .g.a{top:16px;left:14px;right:auto;width:60px;text-align:left;font-size:44px}
+.board .tick{position:absolute;right:12px;top:12px;width:40px;height:40px;border-radius:50%;background:#8a6a4f;color:#fff;font:700 22px Inter;display:flex;align-items:center;justify-content:center;opacity:0}
+.lbl{position:absolute;top:628px;width:270px;text-align:center;font-size:15px;font-weight:600}
+#lL{left:12px}#lR{left:294px}
+.btn{position:absolute;top:670px;width:270px;height:54px;border-radius:999px;background:#fffdf8;border:1px solid rgba(21,20,15,.14);box-shadow:0 6px 16px rgba(20,18,12,.08);display:flex;align-items:center;justify-content:center;font-size:15px;font-weight:600}
+#bBoth{left:12px}#bNone{left:294px}
+.ring{position:absolute;border:3px solid #8a6a4f;border-radius:50%;opacity:0}
+
+#chip{left:0;right:0;top:230px;text-align:center;opacity:0}
+#chip span{display:inline-block;background:#15140f;color:#f7f4ee;font-size:15px;font-weight:600;padding:9px 18px;border-radius:999px}
+
+#cap{left:34px;right:34px;top:772px;text-align:center;font-size:50px;line-height:1.02;opacity:0}
+#cap i{color:#8a6a4f}
+
+#cursor{position:absolute;width:62px;height:62px;border-radius:50%;margin:-31px 0 0 -31px;background:rgba(21,20,15,.18);border:2px solid rgba(21,20,15,.55);opacity:0;z-index:30}
+
+#result{position:absolute;inset:0;background:#14130f;color:#f4f1ea;opacity:0}
+#result .eb{left:0;right:0;top:170px;text-align:center;font-size:13px;color:#c9a178}
+#result .h{left:0;right:0;top:196px;text-align:center;font-size:104px;line-height:.95}
+#result .h i{color:#c9a178}
+.sb{position:absolute;left:46px;right:46px;height:40px}
+.sb .l{position:absolute;left:0;top:0;font-size:17px;font-weight:600}
+.sb .v{position:absolute;right:0;top:0;font-size:17px;color:#c9a178;font-variant-numeric:tabular-nums}
+.sb .tr{position:absolute;left:0;right:0;top:28px;height:5px;border-radius:5px;background:#2b2923}
+.sb .tr i{display:block;height:100%;width:0;background:#c9a178;border-radius:5px}
+#rsub{left:46px;right:46px;top:640px;text-align:center;font-size:21px;line-height:1.35;color:rgba(244,241,234,.75)}
+
+#end{position:absolute;inset:0;background:#0e0d0a;opacity:0;text-align:center}
+#end .k{left:0;right:0;top:300px;font-size:13px;color:#c9a178}
+#end .w{left:0;right:0;top:332px;font-size:104px;line-height:.98;color:#fff}
+#end .w i{color:#c9a178}
+#end .p{left:50px;right:50px;top:560px;font-size:24px;line-height:1.35;color:rgba(255,255,255,.82);font-weight:500}
+#end .u{left:0;right:0;top:700px;font-size:21px;color:#c9a178;font-weight:600;letter-spacing:.02em}
+#end .s{left:0;right:0;top:756px;font-size:14px;letter-spacing:.55em;color:rgba(255,255,255,.7);font-weight:600;padding-left:.55em}
+</style></head>
+<body>
+<div id="stage">
+  <div id="bg"></div>
+
+  <div id="hook">
+    <div class="big serif">¿Cuál<br><i>prefieres?</i></div>
+    <div class="sub">Así aprende tu estilo la app</div>
+  </div>
+
+  <div id="ui">
+    <div class="abs mono" id="eyebrow">Esto o esto</div>
+    <div class="abs serif" id="q">¿Cuál prefieres?</div>
+    <div class="abs" id="prog"><span class="n mono" id="pn">1 de 6</span><div class="bar"><i id="pbar"></i></div></div>
+
+    <div class="board" id="bL"></div>
+    <div class="board" id="bR"></div>
+    <div class="abs ring" id="ringL"></div>
+    <div class="abs ring" id="ringR"></div>
+    <div class="lbl" id="lL">← Este</div>
+    <div class="lbl" id="lR">Este →</div>
+    <div class="btn" id="bBoth">Me gustan los dos</div>
+    <div class="btn" id="bNone">Ninguno me gusta</div>
+  </div>
+
+  <div class="abs serif" id="cap"></div>
+
+  <div id="result">
+    <div class="abs mono eb">Tu estilo</div>
+    <div class="abs serif h">Pijo<br><i>casual</i></div>
+    <div class="sb" id="s1" style="top:470px"><span class="l">Pijo</span><span class="v">78 %</span><div class="tr"><i></i></div></div>
+    <div class="sb" id="s2" style="top:530px"><span class="l">Casual</span><span class="v">70 %</span><div class="tr"><i></i></div></div>
+    <div class="sb" id="s3" style="top:590px"><span class="l">Urbano</span><span class="v">12 %</span><div class="tr"><i></i></div></div>
+    <div class="abs" id="rsub" style="top:668px">Seis duelos y ya te conozco mejor.</div>
+  </div>
+
+  <div id="end">
+    <div class="abs mono k">Novedad</div>
+    <div class="abs serif w">Afina<br><i>tu estilo</i></div>
+    <div class="abs p">Elige tus estilos y resuelve seis duelos.<br>Menos de un minuto.</div>
+    <div class="abs u">socly-style.vercel.app</div>
+    <div class="abs s">SOCLY STYLE</div>
+  </div>
+
+  <div id="cursor"></div>
+</div>
+<script src="duelo.js"></script>
+</body></html>

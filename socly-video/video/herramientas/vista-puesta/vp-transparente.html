@@ -1,0 +1,158 @@
+<!doctype html>
+<html lang="es"><head><meta charset="utf-8">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{width:576px;height:1024px;overflow:hidden;background:#f4f1ea}
+#stage{position:relative;width:576px;height:1024px;overflow:hidden;font-family:Inter,system-ui,sans-serif;color:#15140f}
+.scene{position:absolute;inset:0;opacity:0}
+.serif{font-family:'Instrument Serif',Georgia,serif;font-weight:400}
+.mono{font-family:'Courier New',monospace;letter-spacing:.2em;text-transform:uppercase}
+.abs{position:absolute}
+
+/* fondo de las escenas de la app */
+.paper{position:absolute;inset:0;background:
+  radial-gradient(90% 55% at 12% 0%,rgba(226,196,160,.6),transparent 60%),
+  radial-gradient(80% 50% at 100% 100%,rgba(214,192,170,.55),transparent 60%),#f1ece2}
+
+/* móvil */
+.phone{position:absolute;left:123px;top:62px;width:330px;height:690px;border-radius:48px;background:#0e0e0f;padding:9px;
+  box-shadow:0 30px 60px rgba(40,30,18,.32),0 0 0 2px #2a2a2c inset}
+.screen{position:relative;width:312px;height:672px;border-radius:40px;overflow:hidden;background:#f4f1ea}
+.notch{position:absolute;left:50%;top:9px;width:92px;height:26px;margin-left:-46px;border-radius:20px;background:#0e0e0f;z-index:30}
+.eb{font-size:9.5px;color:#8a6a4f;font-weight:700;letter-spacing:.18em;text-transform:uppercase}
+.h1{font-size:31px;line-height:1.02}
+.h1 i{display:block;color:#15140f}
+
+/* tablero */
+.board{position:absolute;background:#dbd6cd;border-radius:22px;overflow:hidden}
+.board .it{position:absolute;display:flex;align-items:center;justify-content:center}
+.board .it img{max-width:100%;max-height:100%;object-fit:contain}
+
+.btn{position:absolute;left:16px;right:16px;height:48px;border-radius:999px;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:600;letter-spacing:.02em}
+.btn.ink{background:#15140f;color:#f7f4ee;box-shadow:0 1px 0 rgba(255,255,255,.2) inset,0 6px 14px rgba(20,18,12,.22)}
+.btn.sec{background:#fffdf8;border:1px solid rgba(21,20,15,.16);color:#15140f;box-shadow:0 5px 12px rgba(20,18,12,.08)}
+
+/* hoja */
+.dim{position:absolute;inset:0;background:rgba(0,0,0,.4);opacity:0;z-index:20}
+.sheet{position:absolute;left:0;right:0;bottom:0;height:580px;border-radius:26px 26px 0 0;background:#fffdf8;box-shadow:0 -10px 40px rgba(0,0,0,.25);z-index:25;transform:translateY(100%)}
+.sheet .grab{position:absolute;left:50%;top:9px;width:40px;height:4px;margin-left:-20px;border-radius:4px;background:#d9d2c3}
+.sheet .tt{position:absolute;left:22px;top:28px;font-size:26px;line-height:1}
+.sheet .meta{position:absolute;right:22px;top:36px;font-size:11px;color:#8a6a4f;font-weight:600}
+.sheet .box{position:absolute;left:22px;right:22px;top:76px;height:392px;border-radius:20px;overflow:hidden}
+.sheet .box img.fig{position:absolute;left:50%;top:0;height:100%;transform:translateX(-50%);border-radius:18px}
+.sheet .lnk{position:absolute;left:0;right:0;top:482px;text-align:center;font-size:12px;color:#6f675a}
+.sheet .ok{position:absolute;left:22px;right:22px;top:512px;height:50px;border-radius:999px;background:#8a6a4f;color:#fff;font-weight:600;font-size:13px;display:flex;align-items:center;justify-content:center}
+.load{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;text-align:center;font-size:12.5px;color:#6f675a}
+.tile{position:absolute;width:92px;height:116px;border-radius:14px;background:#dbd6cd;display:flex;align-items:center;justify-content:center;box-shadow:0 8px 18px rgba(40,30,18,.18)}
+.tile img{max-width:88%;max-height:88%;object-fit:contain}
+.glow{position:absolute;left:50%;top:50%;width:300px;height:300px;margin:-150px 0 0 -150px;border-radius:50%;background:radial-gradient(circle,rgba(196,154,98,.55),rgba(196,154,98,0) 65%)}
+
+/* dedo */
+#finger{position:absolute;width:40px;height:40px;margin:-20px 0 0 -20px;border-radius:50%;background:rgba(255,255,255,.88);box-shadow:0 4px 14px rgba(0,0,0,.35),0 0 0 2px rgba(0,0,0,.12);z-index:40;opacity:0}
+#ripple{position:absolute;width:40px;height:40px;margin:-20px 0 0 -20px;border-radius:50%;border:3px solid rgba(138,106,79,.9);z-index:39;opacity:0}
+
+.chip{position:absolute;left:50%;padding:9px 18px;border-radius:999px;font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;white-space:nowrap}
+.chip.dark{background:#15140f;color:#f7f4ee;box-shadow:0 8px 20px rgba(20,18,12,.3)}
+.chip.gold{background:#8a6a4f;color:#fff;box-shadow:0 8px 20px rgba(80,55,30,.35)}
+.chip.light{background:#fffdf8;color:#15140f;border:1px solid rgba(21,20,15,.12);box-shadow:0 8px 20px rgba(20,18,12,.18)}
+
+/* galería */
+.card{position:absolute;width:136px;border-radius:16px;overflow:hidden;border:1px solid rgba(21,20,15,.12);background:rgba(224,216,200,.45)}
+.card img{display:block;width:100%;aspect-ratio:2/3;object-fit:cover}
+.card span{display:block;padding:6px 10px;font-size:10px;color:#9a917f}
+
+/* comparación */
+.cmp{position:absolute;width:236px;border-radius:22px;overflow:hidden;background:#e9e4d9;box-shadow:0 24px 50px rgba(40,30,18,.35);border:3px solid #fffdf8}
+.cmp img{display:block;width:100%;aspect-ratio:2/3;object-fit:cover}
+.cmp b{position:absolute;left:12px;top:12px;width:34px;height:34px;border-radius:50%;background:#15140f;color:#fff;font-size:16px;display:flex;align-items:center;justify-content:center}
+.tick{position:absolute;right:12px;top:12px;width:40px;height:40px;border-radius:50%;background:#2eb872;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 12px rgba(30,120,70,.5)}
+</style></head>
+<style>.paper{display:none!important}html,body{background:transparent!important}</style>
+<body>
+<div id="stage">
+
+  <!-- ====== COCHE ====== -->
+  <div id="car" class="scene">
+    <svg id="carSvg" width="576" height="1024" viewBox="0 0 576 1024" xmlns="http://www.w3.org/2000/svg"></svg>
+    <div id="carPhone" class="abs" style="left:318px;top:468px;width:170px;height:340px;border-radius:26px;background:#0b0b0c;padding:7px;box-shadow:0 0 60px rgba(255,205,140,.35),0 0 0 2px #2c2c2e inset;transform-origin:50% 100%">
+      <div style="position:relative;width:100%;height:100%;border-radius:20px;overflow:hidden;background:#e9e4d9"><img src="assets/out-6.png" style="position:absolute;left:50%;top:-2%;height:104%;transform:translateX(-50%)"></div>
+    </div>
+    <div id="carChip" class="chip light" style="top:84px;margin-left:-90px">🚗 Desde tu coche</div>
+  </div>
+
+  <!-- ====== CAMINANDO ====== -->
+  <div id="walk" class="scene">
+    <svg id="walkSvg" width="576" height="1024" viewBox="0 0 576 1024" xmlns="http://www.w3.org/2000/svg"></svg>
+    <div id="walkChip" class="chip light" style="top:84px;margin-left:-128px">👟 Caminando con tus amigos</div>
+  </div>
+
+  <!-- ====== D: la función ====== -->
+  <div id="sceneD" class="scene">
+    <div class="paper"></div>
+    <div id="newChip" class="chip gold" style="top:8px;margin-left:-62px">Nuevo · Vista puesta</div>
+    <div id="phoneD" class="phone">
+      <div class="screen">
+        <div class="notch"></div>
+        <div class="abs eb" style="left:20px;top:50px">Hoy · 14°</div>
+        <div class="abs serif h1" style="left:20px;top:66px">Tu look<i>de hoy</i></div>
+        <div class="board" style="left:16px;top:142px;width:280px;height:350px">
+          <div class="it" style="left:3%;top:3%;width:56%;height:38%"><img src="assets/in-6-0.jpg"></div>
+          <div class="it" style="left:3%;top:42.5%;width:56%;height:36%"><img src="assets/in-6-3.jpg"></div>
+          <div class="it" style="left:3%;top:80%;width:56%;height:17%"><img src="assets/in-6-4.jpg"></div>
+          <div class="it" style="left:60.5%;top:6%;width:36.5%;height:34%"><img src="assets/in-6-1.jpg"></div>
+          <div class="it" style="left:60.5%;top:44%;width:36.5%;height:30%"><img src="assets/in-6-2.jpg"></div>
+        </div>
+        <div class="btn ink" style="top:506px">Me pongo este</div>
+        <div id="btnVista" class="btn sec" style="top:564px">Vista puesta</div>
+        <div id="dim" class="dim"></div>
+        <div id="sheet" class="sheet">
+          <div class="grab"></div>
+          <div class="tt serif">Vista puesta</div>
+          <div class="box" id="shBox">
+            <div class="glow" id="glow" style="opacity:0"></div>
+            <div class="load" id="loadTxt">Montando el look… unos 20 segundos.</div>
+            <div id="tiles"></div>
+            <img id="fig" class="fig" src="assets/out-6.png" style="opacity:0">
+          </div>
+          <div class="lnk">Ver todas mis vistas puestas</div>
+          <div class="ok">Listo</div>
+        </div>
+      </div>
+    </div>
+    <div id="finger"></div><div id="ripple"></div>
+    <div id="invChip" class="chip dark" style="top:758px;margin-left:-86px;opacity:0">✦ Maniquí invisible</div>
+  </div>
+
+  <!-- ====== E: galería y comparar ====== -->
+  <div id="sceneE" class="scene">
+    <div class="paper"></div>
+    <div id="evChip" class="chip light" style="top:12px;margin-left:-112px;opacity:0">📅 Cena · sábado 21:00</div>
+    <div id="phoneE" class="phone">
+      <div class="screen">
+        <div class="notch"></div>
+        <div class="abs eb" style="left:20px;top:50px">En prueba</div>
+        <div class="abs serif h1" style="left:20px;top:66px">Tus vistas<i style="font-style:italic">puestas</i></div>
+        <div id="cards"></div>
+        <div id="dimE" class="dim"></div>
+        <div id="sheetE" class="sheet">
+          <div class="grab"></div>
+          <div class="tt serif">Vista puesta</div>
+          <div class="meta">8 nov</div>
+          <div class="box"><img id="bigImg" class="fig" src="assets/out-6.png"></div>
+          <div class="lnk">Ver todas mis vistas puestas</div>
+          <div class="ok">Listo</div>
+        </div>
+      </div>
+    </div>
+    <div id="fingerE" style="position:absolute;width:40px;height:40px;margin:-20px 0 0 -20px;border-radius:50%;background:rgba(255,255,255,.88);box-shadow:0 4px 14px rgba(0,0,0,.35),0 0 0 2px rgba(0,0,0,.12);z-index:40;opacity:0"></div>
+    <div id="rippleE" style="position:absolute;width:40px;height:40px;margin:-20px 0 0 -20px;border-radius:50%;border:3px solid rgba(138,106,79,.9);z-index:39;opacity:0"></div>
+    <div id="cmpDim" class="abs" style="inset:0;background:rgba(241,236,226,.88);opacity:0"></div>
+    <div id="cmpA" class="cmp" style="opacity:0"><b>A</b><img src="assets/out-3.png"></div>
+    <div id="cmpB" class="cmp" style="opacity:0"><b>B</b><img src="assets/out-6.png"><div id="tickB" class="tick" style="opacity:0"><svg width="22" height="22" viewBox="0 0 22 22"><path d="M4 11.5l5 5L18 6" stroke="#fff" stroke-width="3.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div>
+  </div>
+
+</div>
+<script src="vista-puesta.js"></script>
+</body></html>

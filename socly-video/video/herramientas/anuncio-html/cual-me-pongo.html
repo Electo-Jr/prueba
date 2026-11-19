@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="es"><head><meta charset="utf-8">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{width:576px;height:1024px;overflow:hidden;background:#f4f1ea}
+#stage{position:relative;width:576px;height:1024px;overflow:hidden;background:#f4f1ea;font-family:Inter,system-ui,sans-serif;color:#15140f}
+.abs{position:absolute}
+#bg{position:absolute;inset:0;background:
+  radial-gradient(90% 55% at 12% 0%,rgba(226,196,160,.55),transparent 60%),
+  radial-gradient(80% 50% at 100% 100%,rgba(214,192,170,.5),transparent 60%),#f1ece2}
+.serif{font-family:'Instrument Serif',Georgia,serif;font-weight:400}
+.mono{font-family:'Courier New',monospace;letter-spacing:.22em;text-transform:uppercase}
+.emo{font-family:'Segoe UI Emoji','Noto Color Emoji',sans-serif;line-height:1}
+.scene{position:absolute;inset:0;opacity:0}
+
+#hook{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center}
+#hook .big{font-size:84px;line-height:.98;letter-spacing:-1px}
+#hook .big i{color:#8a6a4f}
+
+/* cabecera común */
+.eb{left:36px;top:84px;font-size:11px;color:#8a6a4f;font-weight:700}
+.ttl{left:36px;top:104px;font-size:44px;line-height:1}
+.desc{left:36px;right:36px;top:162px;font-size:15px;line-height:1.35;color:rgba(21,20,15,.68);font-weight:500}
+
+/* tarjetas de look */
+.look{position:absolute;left:36px;width:504px;height:124px;border-radius:22px;background:#fffdf8;border:1px solid rgba(21,20,15,.1);box-shadow:0 8px 22px rgba(20,18,12,.10);opacity:0}
+.look .lt{position:absolute;left:16px;top:16px;width:32px;height:32px;border-radius:50%;background:#15140f;color:#f7f4ee;font:700 15px Inter;display:flex;align-items:center;justify-content:center}
+.look .row{position:absolute;left:66px;right:16px;top:16px;display:flex;gap:10px}
+.look .row .g{width:86px;height:92px;border-radius:16px;display:flex;align-items:center;justify-content:center}
+.look .row .g .e{font-size:50px}
+
+#share{left:36px;right:36px;top:660px;height:60px;border-radius:999px;background:#15140f;color:#f7f4ee;font-size:18px;font-weight:600;display:flex;align-items:center;justify-content:center;box-shadow:0 8px 20px rgba(20,18,12,.2)}
+
+#sheet{left:28px;right:28px;top:290px;height:290px;border-radius:30px;background:#fffdf8;border:1px solid rgba(21,20,15,.1);box-shadow:0 24px 60px rgba(20,18,12,.25);opacity:0}
+#sheet .h{position:absolute;left:28px;top:26px;font-size:32px;line-height:1}
+#sheet .m{position:absolute;right:26px;top:36px;font-size:13px;font-weight:600;color:#8a6a4f;font-variant-numeric:tabular-nums}
+#sheet .bub{position:absolute;left:28px;top:92px;width:330px;border-radius:22px 22px 22px 6px;background:#ece5d6;padding:16px 18px;font-size:16px;line-height:1.35;font-weight:500}
+#sheet .bub b{display:block;margin-top:6px;color:#8a6a4f;font-weight:600;font-size:14px}
+#sheet .who{position:absolute;left:28px;top:74px;font-size:11px;color:rgba(21,20,15,.5);font-weight:600}
+#sheet .bar{position:absolute;left:28px;right:28px;top:190px;height:66px;border-radius:18px;background:#f1ece2;border:1px solid rgba(21,20,15,.12);display:flex;align-items:center;justify-content:space-between;padding:0 18px;font-size:15px;font-weight:600}
+#sheet .bar small{font-size:12px;color:rgba(21,20,15,.55);font-weight:600;font-variant-numeric:tabular-nums}
+#sheet .bar span{white-space:nowrap}
+
+/* votación */
+#v .eb2{left:36px;top:84px;font-size:10.5px;color:#8a6a4f;font-weight:700}
+#cd{right:36px;top:84px;text-align:right}
+#cd b{display:block;font-size:30px;font-weight:700;font-variant-numeric:tabular-nums;line-height:1}
+#cd small{font-size:11px;color:rgba(21,20,15,.55);font-weight:600}
+#vc{left:36px;top:166px}
+#vc span{display:inline-block;background:#e6dfd0;font-size:15px;font-weight:600;padding:8px 18px;border-radius:999px;font-variant-numeric:tabular-nums}
+.vl{height:150px}
+.vl .row{top:14px}
+.vl .row .g{width:70px;height:62px;border-radius:12px}
+.vl .row .g .e{font-size:36px}
+.vl .n{position:absolute;right:20px;top:20px;font-size:30px;font-weight:700;font-variant-numeric:tabular-nums}
+.vl .tr{position:absolute;left:66px;right:20px;top:100px;height:12px;border-radius:12px;background:#e6dfd0;overflow:hidden}
+.vl .tr i{display:block;height:100%;width:0;background:#b8a58f;border-radius:12px}
+.vl .win{position:absolute;right:20px;top:60px;font-size:11px;font-weight:700;letter-spacing:.06em;background:#8a6a4f;color:#fff;padding:5px 10px;border-radius:999px;opacity:0}
+
+/* resultado */
+#r .big{left:36px;right:36px;top:190px;height:300px;border-radius:28px;background:#fffdf8;border:2px solid #8a6a4f;box-shadow:0 18px 44px rgba(20,18,12,.16)}
+#r .big .lt{position:absolute;left:20px;top:20px;width:36px;height:36px;border-radius:50%;background:#15140f;color:#f7f4ee;font:700 16px Inter;display:flex;align-items:center;justify-content:center}
+#r .big .gr{position:absolute;left:0;right:0;top:56px;display:flex;justify-content:center;gap:14px}
+#r .big .gr div{width:100px;height:110px;border-radius:20px;display:flex;align-items:center;justify-content:center}
+#r .big .gr .e{font-size:62px}
+#r .big .vt{position:absolute;left:0;right:0;top:206px;text-align:center;font-size:34px}
+#r .big .vt i{color:#8a6a4f}
+#r .big .sm{position:absolute;left:0;right:0;top:252px;text-align:center;font-size:13px;color:#8a6a4f}
+#me{left:36px;right:36px;top:534px;height:64px;border-radius:999px;background:#15140f;color:#f7f4ee;font-size:19px;font-weight:600;display:flex;align-items:center;justify-content:center;box-shadow:0 8px 20px rgba(20,18,12,.2)}
+#cl{left:36px;right:36px;top:614px;height:50px;border-radius:999px;border:1px solid rgba(21,20,15,.25);font-size:16px;font-weight:600;display:flex;align-items:center;justify-content:center;color:rgba(21,20,15,.75)}
+#note{left:36px;right:36px;top:700px;text-align:center;font-size:17px;line-height:1.35;font-weight:600;color:#4f7a48;opacity:0}
+
+#cap{left:34px;right:34px;top:898px;text-align:center;font-size:44px;line-height:1.02;opacity:0;text-wrap:balance}
+#cap i{color:#8a6a4f}
+
+#cursor{position:absolute;width:62px;height:62px;border-radius:50%;margin:-31px 0 0 -31px;background:rgba(255,255,255,.28);border:2px solid rgba(255,255,255,.9);box-shadow:0 0 0 2px rgba(21,20,15,.5),0 4px 12px rgba(0,0,0,.25);opacity:0;z-index:30}
+
+#dec{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;text-align:center;opacity:0}
+#dec .big{font-size:62px;line-height:1}
+#dec .big i{color:#8a6a4f}
+
+#end{position:absolute;inset:0;background:#0e0d0a;opacity:0;text-align:center}
+#end .w{left:0;right:0;top:300px;font-size:96px;line-height:.98;color:#fff}
+#end .w i{color:#c9a178}
+#end .p{left:50px;right:50px;top:560px;font-size:25px;line-height:1.35;color:rgba(255,255,255,.82);font-weight:500}
+#end .u{left:0;right:0;top:640px;font-size:21px;color:#c9a178;font-weight:600;letter-spacing:.02em}
+#end .s{left:0;right:0;top:700px;font-size:14px;letter-spacing:.55em;color:rgba(255,255,255,.7);font-weight:600;padding-left:.55em}
+</style></head>
+<body>
+<div id="stage">
+  <div id="bg"></div>
+
+  <div id="hook"><div class="big serif">Son las 20:50.<br><i>¿Qué me pongo?</i></div></div>
+
+  <div class="scene" id="s1">
+    <div class="abs mono eb">Lo monta tu estilista</div>
+    <div class="abs serif ttl">¿Cuál me pongo?</div>
+    <div class="abs desc">Tres looks con tu ropa de verdad, para el tiempo que hace hoy. Tú solo eliges para qué es y cuánto tiempo tienes.</div>
+    <div id="looks1"></div>
+    <div class="abs" id="share">Compartir con tu círculo</div>
+    <div class="abs" id="sheet">
+      <div class="serif h">Tu círculo</div>
+      <div class="m" id="shM">Quedan 15:00</div>
+      <div class="who">Mensaje al grupo</div>
+      <div class="bub" style="top:92px">¿Cuál me pongo? Vota con un toque 👇</div>
+      <div class="bar"><span>socly-style.vercel.app/v/…</span><small>Quedan 15:00</small></div>
+    </div>
+  </div>
+
+  <div class="scene" id="v">
+    <div class="abs mono eb2">Alguien de tu círculo pregunta</div>
+    <div class="abs serif ttl" style="top:112px">¿Cuál me pongo?</div>
+    <div class="abs" id="cd"><b id="cdT">14:32</b><small>para votar</small></div>
+    <div class="abs" id="vc"><span id="vcT">1 voto</span></div>
+    <div id="looks2"></div>
+  </div>
+
+  <div class="scene" id="r">
+    <div class="abs mono eb">Así va tu votación</div>
+    <div class="abs serif ttl">Va ganando <i style="color:#8a6a4f">este look</i></div>
+    <div class="abs big" id="rBig"></div>
+    <div class="abs" id="me">Me pongo este</div>
+    <div class="abs" id="cl">Ya está, cerrar ahora</div>
+    <div class="abs" id="note">Entra en tu diario y cuenta para la racha.</div>
+  </div>
+
+  <div class="abs serif" id="cap"></div>
+
+  <div id="dec"><div class="big serif">Pregunta a tu círculo.<br><i>Decide en un toque.</i></div></div>
+
+  <div id="end">
+    <div class="abs serif w">¿Cuál<br><i>me pongo?</i></div>
+    <div class="abs p">Pregúntalo a tu círculo.</div>
+    <div class="abs u">socly-style.vercel.app</div>
+    <div class="abs s">SOCLY STYLE</div>
+  </div>
+
+  <div id="cursor"></div>
+</div>
+<script src="cual-me-pongo.js"></script>
+</body></html>

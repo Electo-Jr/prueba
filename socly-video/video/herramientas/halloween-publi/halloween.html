@@ -1,0 +1,184 @@
+<!doctype html>
+<html lang="es"><head><meta charset="utf-8">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600;800&display=swap');
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{width:576px;height:1024px;overflow:hidden;background:#100F0C}
+#stage{position:absolute;left:0;top:0;width:576px;height:1024px;overflow:hidden;color:#F4EFE4;font-family:Inter,Arial,sans-serif;
+  background:radial-gradient(90% 55% at 100% 0%,rgba(210,112,42,.16),transparent 70%),radial-gradient(80% 45% at 0% 100%,rgba(210,112,42,.10),transparent 70%),#100F0C}
+.abs{position:absolute;left:0;width:576px;text-align:center}
+.mask{overflow:hidden}
+.serif{font-family:'Instrument Serif',Georgia,serif;font-weight:400;letter-spacing:-.01em;line-height:1}
+.or{color:#D2702A}
+em{font-style:italic;color:#D2702A}
+.eyebrow{font-weight:500;font-size:15px;letter-spacing:.32em;text-transform:uppercase;color:#D2702A}
+#phone{position:absolute;left:130px;top:104px;width:316px;height:676px;border-radius:46px;background:#16140f;border:8px solid #1d1b16;
+  box-shadow:0 0 0 1.5px rgba(210,112,42,.55),0 30px 80px rgba(0,0,0,.6),0 0 90px rgba(210,112,42,.22);overflow:hidden}
+#scr{position:absolute;left:0;top:0;width:300px;height:650px;display:block}
+#notch{position:absolute;left:104px;top:6px;width:92px;height:22px;border-radius:14px;background:#000}
+.card{position:absolute;left:48px;width:480px;border:1.5px solid #D2702A;border-radius:30px;background:rgba(26,24,20,.92);padding:26px 30px 28px;box-shadow:0 0 60px rgba(210,112,42,.14)}
+.card .t{font-family:'Instrument Serif',Georgia,serif;font-style:italic;font-size:62px;color:#D2702A;line-height:1}
+.card .l{margin-top:10px;font-size:22px;line-height:1.35;color:rgba(244,239,228,.82)}
+.tag{display:inline-block;font-size:12px;letter-spacing:.3em;text-transform:uppercase;color:rgba(244,239,228,.55);margin-bottom:8px}
+#cap{position:absolute;left:0;top:808px;width:576px;text-align:center;font-weight:800;font-size:38px;letter-spacing:.01em;text-transform:uppercase;
+  text-shadow:0 3px 14px rgba(0,0,0,.85);line-height:1.1;padding:0 24px;white-space:nowrap}
+#cap span{display:inline-block;margin:0 5px;color:#F4EFE4}
+#cap span.on{color:#D2702A}
+.pill{display:inline-block;padding:16px 36px;border-radius:999px;background:#F4EFE4;color:#15140F;font-weight:600;font-size:26px}
+#flood{position:absolute;left:288px;top:512px;width:1500px;height:1500px;margin:-750px 0 0 -750px;border-radius:50%;background:#D2702A;transform:scale(0)}
+</style></head><body>
+<div id="stage">
+  <svg id="deco" viewBox="0 0 1080 1920" width="576" height="1024" style="position:absolute;left:0;top:0"></svg>
+
+  <div id="s1">
+    <div class="abs eyebrow" id="eb" style="top:96px">Esta semana</div>
+    <div class="abs mask" style="top:124px;height:96px"><div class="serif" id="l1" style="font-size:92px">Socly Style</div></div>
+    <div class="abs mask" style="top:222px;height:40px"><div class="serif" id="l2" style="font-size:34px;font-style:italic;color:rgba(244,239,228,.8)">se viste de</div></div>
+    <div class="abs mask" style="top:262px;height:112px"><div class="serif" id="l3" style="font-size:104px"><em>Halloween</em></div></div>
+    <svg id="pump" viewBox="-10 -24 180 176" width="300" style="position:absolute;left:138px;top:410px;overflow:visible"></svg>
+  </div>
+
+  <div id="phone"><canvas id="scr" width="384" height="832"></canvas><div id="notch"></div></div>
+
+  <div id="s3">
+    <div class="card" id="c1" style="top:150px"><div class="tag">Opción 1</div><div class="t">Truco</div><div class="l">Un descuento sorpresa en un pack.</div></div>
+    <div class="card" id="c2" style="top:410px"><div class="tag">Opción 2</div><div class="t">Trato</div><div class="l">Si un amigo compra un pack, el mismo pack es tuyo gratis.</div></div>
+  </div>
+
+  <div id="flood"></div>
+
+  <div id="s4">
+    <img id="logo" src="logo-blanco.png" style="position:absolute;left:238px;top:190px;width:100px">
+    <div class="abs" id="e0" style="top:310px;font-size:15px;letter-spacing:.42em;text-transform:uppercase;color:rgba(244,239,228,.8)">Socly Style</div>
+    <div class="abs mask" style="top:356px;height:66px"><div class="serif" id="e1" style="font-size:54px">Elige uno,</div></div>
+    <div class="abs mask" style="top:416px;height:66px"><div class="serif" id="e2" style="font-size:54px"><em>una sola vez</em></div></div>
+    <div class="abs mask" style="top:520px;height:44px"><div class="serif" id="e3" style="font-size:34px;color:rgba(244,239,228,.85)">Hasta el 2 de noviembre</div></div>
+    <svg id="pump2" viewBox="-10 -24 180 176" width="190" style="position:absolute;left:193px;top:700px;overflow:visible"></svg>
+  <div class="abs" id="e4" style="top:600px"><span class="pill">Enlace en la bio</span></div>
+  </div>
+
+  <div id="cap"></div>
+</div>
+<script src="datos.js"></script>
+<script>
+const OR='#D2702A';
+const $=(i)=>document.getElementById(i);
+const cl=(x,a=0,b=1)=>Math.min(b,Math.max(a,x));
+const eo=(x)=>1-Math.pow(1-cl(x),3);
+const ei=(x)=>Math.pow(cl(x),3);
+const eio=(x)=>{x=cl(x);return x<.5?4*x*x*x:1-Math.pow(-2*x+2,3)/2};
+const sp=(x)=>x<=0?0:x>=1?1:1-Math.exp(-8*x)*Math.cos(12*x);
+const prog=(t,a,d)=>cl((t-a)/d);
+
+// ---------- decoración de fondo ----------
+const web=(R,n,rings,sag)=>{let d='';const pt=(r,a)=>[r*Math.cos(a),r*Math.sin(a)];const angs=[...Array(n)].map((_,i)=>(Math.PI/2*i)/(n-1));
+  angs.forEach(a=>{const [x,y]=pt(R,a);d+=`M0 0L${x.toFixed(1)} ${y.toFixed(1)}`});
+  for(let j=1;j<=rings;j++){const r=R*j/rings;for(let i=0;i<n-1;i++){const [x1,y1]=pt(r,angs[i]);const [x2,y2]=pt(r,angs[i+1]);const [cx,cy]=pt(r*sag,(angs[i]+angs[i+1])/2);d+=`M${x1.toFixed(1)} ${y1.toFixed(1)}Q${cx.toFixed(1)} ${cy.toFixed(1)} ${x2.toFixed(1)} ${y2.toFixed(1)}`}}return d};
+const webD=web(160,5,5,.9);
+const batPath='M0 -2L-2 -7L-3 -2C-8 -8 -15 -8 -21 -4C-17 -3 -15 -1 -14 3C-11 0 -8 0 -5 4C-3 2 -2 2 0 6C2 2 3 2 5 4C8 0 11 0 14 3C15 -1 17 -3 21 -4C15 -8 8 -8 3 -2L2 -7Z';
+const BATS=[[110,1500,2.4,-12,.45],[960,640,2.2,14,.35],[90,330,2.6,-8,.4],[950,1700,2.6,10,.4]];
+const SPARKS=[[120,560,7],[960,520,8],[200,1700,6],[880,1250,6],[90,1000,5],[1010,1500,6],[540,1830,5]];
+const spark=(x,y,s,o)=>`<path transform="translate(${x} ${y}) scale(${s})" d="M0 -4L1 -1L4 0L1 1L0 4L-1 1L-4 0L-1 -1Z" fill="${OR}" fill-opacity="${o}"/>`;
+$('deco').innerHTML=`
+ <g transform="translate(1080 0) scale(-3.1 3.1)"><path d="${webD}" fill="none" stroke="${OR}" stroke-opacity=".30" stroke-width=".55"/></g>
+ <g transform="translate(0 1920) scale(2.2 -2.2)"><path d="${webD}" fill="none" stroke="${OR}" stroke-opacity=".16" stroke-width=".6"/></g>
+ <g id="bats"></g><g id="sparks"></g>
+ <g transform="translate(900 200)" fill="none" stroke="${OR}" stroke-opacity=".45" stroke-width="2.6"><path d="M0 -44A44 44 0 1 0 40 18A35 35 0 1 1 0 -44Z"/></g>`;
+
+// ---------- calabaza (se dibuja) ----------
+const PUMPKIN=['M80 36C40 28 12 52 12 86c0 32 30 46 68 46s68-14 68-46c0-34-28-58-68-50Z','M80 36C58 48 54 118 80 132','M80 36C102 48 106 118 80 132','M80 36C46 46 34 108 62 130','M80 36C114 46 126 108 98 130','M26 70C30 62 36 56 44 52M134 70C130 62 124 56 116 52','M51 82Q80 96 109 82L101 88L95 82L87 90L80 84L73 90L65 82L59 88Z','M56 40C66 32 94 32 104 40','M80 34C80 24 84 16 96 10','M96 10C102 12 106 16 108 22C102 22 98 18 96 10Z'];
+$('pump').innerHTML=`<defs><radialGradient id="g" cx="50%" cy="50%" r="50%"><stop offset="0" stop-color="${OR}" stop-opacity=".55"/><stop offset="1" stop-color="${OR}" stop-opacity="0"/></radialGradient></defs>
+<ellipse id="glow" cx="80" cy="74" rx="110" ry="86" fill="url(#g)" opacity="0"/>
+<g fill="none" stroke="${OR}" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">${PUMPKIN.map((d,i)=>`<path class="pp" pathLength="1" stroke-dasharray="1" stroke-dashoffset="1" transform="translate(0 ${i>=7?-0:12})" d="${d}"/>`).join('')}</g>`;
+const pps=[...document.querySelectorAll('.pp')];
+$('pump2').innerHTML=`<defs><radialGradient id="g2" cx="50%" cy="50%" r="50%"><stop offset="0" stop-color="${OR}" stop-opacity=".55"/><stop offset="1" stop-color="${OR}" stop-opacity="0"/></radialGradient></defs><ellipse id="glow2" cx="80" cy="74" rx="110" ry="86" fill="url(#g2)"/><g fill="none" stroke="${OR}" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">${PUMPKIN.map((d,i)=>`<path transform="translate(0 12)" d="${d}"/>`).join('')}</g>`;
+
+// ---------- fotogramas de la grabación ----------
+const IMG={};
+window.loaded=(async()=>{
+  const jobs=[];
+  for(const [name,n] of Object.entries(CLIPS)){IMG[name]=[];for(let i=1;i<=n;i++){const im=new Image();im.src=`clips/${name}/${String(i).padStart(4,'0')}.jpg`;IMG[name][i-1]=im;jobs.push(im.decode().catch(()=>{}))}}
+  await Promise.all(jobs);return Object.keys(IMG).length;
+})();
+const ctx=$('scr').getContext('2d');
+const frame=(name,i)=>IMG[name][cl(Math.round(i),0,CLIPS[name]-1)];
+function drawScreen(t){
+  // lista de pantallas: [clip, fotograma, desde]
+  const sc=[
+    ['home',  30+(t-3.9)*30,   0],
+    ['armario',(t-4.55)*30,    4.55],
+    ['looks', 12+(t-5.7)*30,   5.7],
+    ['truco', 30+(t-7.98)*42,  7.98],
+  ];
+  ctx.fillStyle='#100F0C';ctx.fillRect(0,0,384,832);
+  let cur=0;for(let i=0;i<sc.length;i++)if(t>=sc[i][2])cur=i;
+  const push=cur>0?eio(prog(t,sc[cur][2],.28)):1;
+  if(cur>0&&push<1){ctx.drawImage(frame(sc[cur-1][0],sc[cur-1][1]),-384*push*.35,0,384,832);}
+  const x=cur>0?384*(1-push):0;
+  ctx.drawImage(frame(sc[cur][0],sc[cur][1]),x,0,384,832);
+}
+
+// ---------- subtítulos ----------
+const GR=[];{let g=[];for(const w of PAL){g.push(w);if(g.length>=3||/[.,:]$/.test(w.w)){GR.push(g);g=[]}}if(g.length)GR.push(g)}
+function caps(t){
+  const el=$('cap');
+  if(t<2.95||t>11.9){el.style.display='none';return}
+  const g=GR.find(g=>t>=g[0].a-.02&&t<g[g.length-1].b+.18);
+  if(!g){el.style.display='none';return}
+  el.style.display='block';
+  const k=eo(prog(t,g[0].a,.12));
+  el.style.transform=`scale(${.92+.08*k})`;el.style.opacity=String(.2+.8*k);
+  el.innerHTML=g.map(w=>`<span class="${t>=w.a?'on':''}" style="${t>=w.a&&t<w.b?'color:#D2702A':'color:#F4EFE4'}">${w.w.replace(/[.,:]$/,'')}</span>`).join('');
+}
+
+// curva de tiempo: [tiempo del guion antiguo, tiempo real de la voz]
+const ANC=[[0,0],[1.0,1.1],[3.06,2.32],[3.9,2.7],[4.55,3.12],[5.7,3.86],[7.98,5.32],[10.3,7.66],[13.3,11.8],[13.81,12.16],[15.17,13.64],[16.64,14.86],[18.4,17.0]];
+function W(T){for(let i=1;i<ANC.length;i++){const [o0,n0]=ANC[i-1],[o1,n1]=ANC[i];if(T<=n1)return o0+(o1-o0)*Math.max(0,(T-n0)/(n1-n0))}const L=ANC[ANC.length-1];return L[0]+(T-L[1])}
+const maskUp=(id,t,a,d=.5)=>{$(id).style.transform=`translateY(${(1-eo(prog(t,a,d)))*160}%)`};
+
+function render(T){
+  const t=W(T);
+  // fondo vivo
+  $('bats').innerHTML=BATS.map(([x,y,s,r,o],i)=>`<g transform="translate(${x+Math.sin(t*.7+i)*14} ${y+Math.cos(t*.5+i*2)*10}) rotate(${r+Math.sin(t*1.2+i)*4}) scale(${s*(1+.12*Math.sin(t*9+i))} ${s})"><path d="${batPath}" fill="none" stroke="${OR}" stroke-opacity="${o}" stroke-width="${1.2/s}"/></g>`).join('');
+  $('sparks').innerHTML=SPARKS.map(([x,y,s],i)=>spark(x,y,s*(.7+.3*Math.sin(t*3+i*1.7)),.35+.25*Math.sin(t*2.3+i))).join('');
+
+  // ---- escena 1 (0 – 4.4)
+  const out1=eio(prog(t,3.85,.6));
+  $('s1').style.display=t<4.5?'block':'none';
+  $('s1').style.transform=`translateY(${-out1*150}px)`;$('s1').style.opacity=String(1-out1*.9);
+  $('eb').style.opacity=String(eo(prog(t,.1,.4)));
+  maskUp('l1',t,.7,.55);maskUp('l2',t,2.0,.45);maskUp('l3',t,3.05,.6);
+  pps.forEach((p,i)=>p.style.strokeDashoffset=String(1-eio(prog(t,.15+i*.12,1.5))));
+  $('glow').setAttribute('opacity',String(eo(prog(t,1.4,1.4))*(.75+.25*Math.sin(t*5))));
+  $('pump').style.transform=`scale(${1-out1*.6})`;
+
+  // ---- móvil (sube a 3.9, baja a 10.25)
+  const inP=sp(prog(t,3.9,1.0)), outP=ei(prog(t,10.2,.65));
+  const py=(1-inP)*820+outP*980;
+  $('phone').style.transform=`translateY(${py}px) rotate(${(1-inP)*-6+outP*5}deg)`;
+  $('phone').style.display=(t<3.8||t>10.95)?'none':'block';
+  if(t>=3.8&&t<=10.95)drawScreen(t);
+
+  // ---- escena 3: tarjetas (10.35 → 13.9)
+  const c1=sp(prog(t,10.35,.75)), c2=sp(prog(t,10.55,.75));
+  const exit3=eio(prog(t,13.3,.35));
+  const set=(id,p,fromX)=>{const e=$(id);e.style.display=(t<10.3||t>13.8)?'none':'block';e.style.transform=`translateX(${(1-p)*fromX+exit3*-fromX}px) scale(${.92+.08*p})`;e.style.opacity=String(cl(p*2))};
+  set('c1',c1,-620);set('c2',c2,620);
+
+  // ---- inundación naranja (13.45 → 14.3)
+  const fl=t<13.7?eio(prog(t,13.3,.4)):1-eio(prog(t,13.7,.45));
+  $('flood').style.transform=`scale(${t<13.25?0:fl})`;
+  $('flood').style.display=(t<13.25||t>14.2)?'none':'block';
+
+  // ---- escena 4 (13.9 →)
+  $('s4').style.display=t>=13.6?'block':'none';
+  const lg=sp(prog(t,13.78,.6));$('logo').style.transform=`scale(${lg})`;$('logo').style.opacity=String(cl(lg*3));
+  $('e0').style.opacity=String(eo(prog(t,13.95,.4)));
+  maskUp('e1',t,13.9,.45);maskUp('e2',t,14.38,.5);maskUp('e3',t,15.15,.5);
+  const pl=sp(prog(t,16.55,.7));$('e4').style.transform=`scale(${.7+.3*pl})`;$('e4').style.opacity=String(cl(pl*2));
+
+  $('pump2').style.opacity=String(eo(prog(t,15.9,.6)));$('pump2').style.transform=`scale(${.8+.2*eo(prog(t,15.9,.8))})`;
+  caps(T);
+}
+render(0);
+</script></body></html>

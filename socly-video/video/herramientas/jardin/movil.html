@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="es"><head><meta charset="utf-8">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{width:576px;height:1024px;overflow:hidden;background:transparent}
+#stage{position:relative;width:576px;height:1024px;overflow:hidden;font-family:Inter,system-ui,sans-serif;color:#15140f}
+.abs{position:absolute}
+#rig{position:absolute;left:288px;top:520px;width:0;height:0}
+#phone{position:absolute;left:-215px;top:-440px;width:430px;height:880px;border-radius:58px;background:linear-gradient(145deg,#3a3a3e,#111113 40%,#2a2a2d);padding:9px;
+  box-shadow:0 0 0 2px rgba(255,255,255,.2),0 40px 90px rgba(0,0,0,.55),0 0 0 1px rgba(0,0,0,.4)}
+#screen{position:relative;width:412px;height:862px;border-radius:50px;overflow:hidden;background:#e8dfd1}
+#island{position:absolute;left:50%;top:12px;width:110px;height:31px;margin-left:-55px;border-radius:18px;background:#050506;z-index:20}
+#ui{position:absolute;left:0;top:0;width:390px;height:816px;transform-origin:0 0;transform:scale(1.0564)}
+.scr{position:absolute;inset:0;background:linear-gradient(165deg,#efdcc6 0%,#eae0dc 38%,#e7dccd 100%);opacity:0}
+.eb{font-family:'Courier New',monospace;font-size:10px;letter-spacing:.22em;color:rgba(21,20,15,.5);text-transform:uppercase}
+.ttl{font-family:'Instrument Serif',Georgia,serif;font-size:44px;line-height:1;color:#15140f}
+.pill{border:1px solid rgba(21,20,15,.18);border-radius:999px;padding:6px 14px;font-size:12px;color:rgba(21,20,15,.7);white-space:nowrap}
+.pill.on{background:#15140f;color:#f7f4ee;border-color:#15140f}
+.btn{display:flex;align-items:center;justify-content:center;height:50px;border-radius:999px;font-size:14px;font-weight:600}
+.btn.ln{border:1px solid rgba(21,20,15,.22);background:rgba(255,253,248,.35);color:#15140f}
+.card{background:#fffdf8;border:1px solid rgba(21,20,15,.09);border-radius:20px;box-shadow:0 8px 24px rgba(20,18,12,.07)}
+.emo{font-family:'Segoe UI Emoji','Noto Color Emoji',sans-serif;line-height:1}
+.cell{position:absolute;width:106px;height:128px;border-radius:20px;background:#fffdf8;border:1px solid rgba(21,20,15,.09);box-shadow:0 8px 20px rgba(20,18,12,.07);display:flex;align-items:center;justify-content:center;font-size:54px;opacity:0}
+.cell small{position:absolute;left:0;right:0;bottom:9px;text-align:center;font:500 10px Inter;color:rgba(21,20,15,.5)}
+.dot{width:26px;height:26px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;font-size:12px;color:rgba(21,20,15,.6)}
+.dot.on{border:1px solid #15140f;background:#e9d9c9;color:#15140f;font-weight:600}
+.chip{display:inline-flex;align-items:center;gap:8px;border:1px solid rgba(21,20,15,.12);border-radius:999px;padding:7px 14px 7px 8px;font-size:11px;background:rgba(255,253,248,.5)}
+.lookbox{position:absolute;top:0;width:338px;height:380px;border-radius:22px;background:#dcd8ce;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px}
+</style></head>
+<body><div id="stage">
+<div id="rig"><div id="phone"><div id="island"></div><div id="screen"><div id="ui">
+
+  <!-- ARMARIO -->
+  <div class="scr" id="s-arm">
+    <div class="eb abs" style="left:26px;top:60px">Todas tus prendas</div>
+    <div class="ttl abs" style="left:26px;top:80px">Tu armario</div>
+    <div class="abs" id="pills" style="left:26px;top:146px;display:flex;gap:7px"><span class="pill on">Todo</span><span class="pill">Arriba</span><span class="pill">Abajo</span><span class="pill">Calzado</span></div>
+    <div id="grid"></div>
+  </div>
+
+  <!-- LOOKS DE HOY -->
+  <div class="scr" id="s-look">
+    <div class="eb abs" style="left:26px;top:60px">Tres ideas para hoy</div>
+    <div class="ttl abs" style="left:26px;top:80px">Tus looks de hoy</div>
+    <div class="abs" id="dots" style="right:22px;top:92px;display:flex;gap:4px"><span class="dot on">1</span><span class="dot">2</span><span class="dot">3</span></div>
+    <div class="abs" style="left:26px;top:150px;width:338px;height:380px;overflow:hidden;border-radius:22px"><div id="track" style="position:absolute;left:0;top:0;width:1100px;height:380px"></div></div>
+    <div class="abs" id="lk-title" style="left:26px;top:548px;width:338px;font-family:'Instrument Serif',Georgia,serif;font-size:26px;line-height:1.05"></div>
+    <div class="abs" style="left:26px;right:26px;top:592px;height:2px;background:rgba(21,20,15,.12)"><div style="height:2px;background:#8a6a4f;width:80%"></div></div>
+    <div class="abs" id="lk-sub" style="left:26px;top:608px;font-size:12px;color:rgba(21,20,15,.6)"></div>
+    <div class="abs" style="left:26px;top:636px;display:flex;gap:8px" id="lk-chips"></div>
+    <div class="btn ln abs" style="left:26px;right:26px;top:700px">Me pongo este</div>
+  </div>
+
+</div></div></div></div>
+<div id="glare" class="abs" style="left:0;top:0;width:0;height:0"></div>
+</div>
+<script>
+const CELLS=[['👕','Camiseta'],['👖','Vaquero'],['🧥','Chaqueta'],['👟','Zapatillas'],['👔','Camisa'],['🧣','Bufanda'],['👗','Vestido'],['🥾','Botas'],['🧶','Jersey'],['🩳','Short'],['👜','Bolso'],['🕶️','Gafas']];
+const grid=document.getElementById('grid');
+CELLS.forEach((c,i)=>{const d=document.createElement('div');d.className='cell';d.style.left=(26+(i%3)*116)+'px';d.style.top=(198+Math.floor(i/3)*140)+'px';d.innerHTML='<span class="emo">'+c[0]+'</span><small>'+c[1]+'</small>';grid.appendChild(d)});
+const LOOKS=[
+ {e:['👕','👖','👟'],t:'Casual limpio',s:'Base neutra y un color que se lleva bien',c:[['👟','Zapatillas'],['👕','Camiseta']]},
+ {e:['🧥','👖','🥾'],t:'Capas y vaquero',s:'Para la mañana fresca',c:[['🧥','Chaqueta'],['🥾','Botas']]},
+ {e:['👔','👖','👞'],t:'Un punto más arreglado',s:'Camisa, vaquero y zapato',c:[['👔','Camisa'],['👞','Zapatos']]}];
+const track=document.getElementById('track');
+LOOKS.forEach((l,i)=>{const d=document.createElement('div');d.className='lookbox';d.style.left=(i*338)+'px';
+  d.innerHTML='<span class="emo" style="font-size:78px">'+l.e[0]+'</span><span class="emo" style="font-size:78px">'+l.e[1]+'</span><span class="emo" style="font-size:62px">'+l.e[2]+'</span>';track.appendChild(d)});
+const chipHtml=l=>l.c.map(x=>'<span class="chip"><span class="emo" style="font-size:18px">'+x[0]+'</span><span>'+x[1]+'<br><span style="opacity:.5">De tu armario</span></span></span>').join('');
+const $=id=>document.getElementById(id);
+const clamp=(x,a=0,b=1)=>Math.min(b,Math.max(a,x));
+const eo=x=>1-Math.pow(1-clamp(x),3);
+const eb=x=>{x=clamp(x);const c1=1.4,c3=c1+1;return 1+c3*Math.pow(x-1,3)+c1*Math.pow(x-1,2)};
+const eio=x=>{x=clamp(x);return x<.5?4*x*x*x:1-Math.pow(-2*x+2,3)/2};
+const SW=[2.9,3.2];           // cambio de pantalla
+const LK=[3.6,4.4,5.2];       // instantes en que cambia el look (1→2, 2→3)
+let lastLook=-1;
+function render(t){
+  // entrada del móvil
+  const p=eb(t/0.7);
+  const rise=(1-p)*620;
+  const sc=.86+.14*clamp(p,0,1.0);
+  const float=Math.sin(t*1.6)*3;
+  $('rig').style.transform='translateY('+(rise+float)+'px) scale('+sc+')';
+  $('rig').style.opacity=clamp(t/0.25);
+  // pantallas
+  const a=1-eio((t-SW[0])/(SW[1]-SW[0]));
+  $('s-arm').style.opacity=clamp(t/0.4)*a;
+  $('s-look').style.opacity=1-a;
+  // cuadrícula: cada prenda entra con un pequeño rebote
+  [...grid.children].forEach((d,i)=>{const q=eb((t-0.65-i*0.085)/0.4);d.style.opacity=clamp((t-0.65-i*0.085)/0.2);d.style.transform='translateY('+((1-q)*26)+'px) scale('+(.85+.15*clamp(q,0,1.05))+')'});
+  // pestañas del armario
+  const ps=[...$('pills').children];const pi=t<1.5?0:t<2.1?1:2;ps.forEach((e,i)=>e.classList.toggle('on',i===pi));
+  // looks
+  const k=t>=LK[1]?2:t>=LK[0]?1:0;
+  const off=-338*(t<LK[0]?0:t<LK[0]+0.45?eio((t-LK[0])/0.45):t<LK[1]?1:t<LK[1]+0.45?1+eio((t-LK[1])/0.45):2);
+  track.style.transform='translateX('+off+'px)';
+  if(k!==lastLook){lastLook=k;$('lk-title').textContent=LOOKS[k].t;$('lk-sub').textContent=LOOKS[k].s;$('lk-chips').innerHTML=chipHtml(LOOKS[k]);
+    [...$('dots').children].forEach((e,i)=>e.classList.toggle('on',i===k))}
+}
+render(0);
+</script>
+</body></html>

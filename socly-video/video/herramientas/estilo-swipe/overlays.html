@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="es"><head><meta charset="utf-8">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{width:1080px;height:1920px;overflow:hidden;background:transparent}
+#stage{position:relative;width:1080px;height:1920px;overflow:hidden}
+.pop{position:absolute;opacity:0;will-change:transform,opacity}
+/* gancho: dos líneas arriba, la segunda en dorado */
+#hook,#cta{left:0;top:190px;width:1080px;text-align:center;font-family:'Arial Black','Arial',sans-serif;font-size:92px;line-height:1.08;letter-spacing:.5px;color:#fff;
+  text-shadow:0 0 0 #000,-5px -5px 0 #000,5px -5px 0 #000,-5px 5px 0 #000,5px 5px 0 #000,0 8px 22px rgba(0,0,0,.45)}
+#hook b,#cta b{color:#f2b84b}
+/* móvil con la grabación de pantalla del swipe */
+#phone{left:25px;top:355px;width:376px;border-radius:50px;background:linear-gradient(145deg,#3a3a3e,#111113 45%,#2a2a2d);padding:8px;
+  box-shadow:0 0 0 2px rgba(255,255,255,.18),0 36px 70px rgba(0,0,0,.5),0 0 0 1px rgba(0,0,0,.45)}
+#phone img{display:block;width:360px;border-radius:42px;background:#e8dfd1}
+/* tarjetas del duelo */
+.duel{width:330px;border-radius:40px;overflow:hidden;box-shadow:0 30px 60px rgba(0,0,0,.4),0 0 0 2px rgba(255,255,255,.14)}
+.duel img{display:block;width:330px}
+#dl{left:25px;top:440px}
+#dr{left:725px;top:440px}
+#vs{left:488px;top:830px;width:104px;height:104px;border-radius:50%;background:#15140f;border:4px solid #f2b84b;color:#f2b84b;
+  font-family:'Arial Black','Arial',sans-serif;font-size:42px;display:flex;align-items:center;justify-content:center;box-shadow:0 14px 34px rgba(0,0,0,.5)}
+</style></head>
+<body><div id="stage">
+<div id="hook" class="pop">UNA APP QUE APRENDE<br><b>TU ESTILO</b></div>
+<div id="cta" class="pop">SOCLY STYLE<br><b>ENLACE EN LA BIO</b></div>
+<div id="phone" class="pop"><img id="rec" src=""></div>
+<div id="dl" class="pop duel"><img src="../../fotos-propias/estilo-swipe/duelo-izquierda.jpg"></div>
+<div id="dr" class="pop duel"><img src="../../fotos-propias/estilo-swipe/duelo-derecha.jpg"></div>
+<div id="vs" class="pop">VS</div>
+</div>
+<script>
+// Los tiempos (en segundos del vídeo final) los pone go2.py en window.PLAN antes de pintar.
+const clamp = (x, a = 0, b = 1) => Math.min(b, Math.max(a, x));
+// rebote suave al aparecer (easeOutBack)
+const back = (x) => { const c1 = 1.5, c3 = c1 + 1; const t = clamp(x) - 1; return 1 + c3 * t * t * t + c1 * t * t; };
+const easeIn = (x) => clamp(x) * clamp(x);
+
+function place(el, tIn, tOut, t, { rot = 0, floatPhase = 0, from = 0.55, popDur = 0.34, outDur = 0.2, slide = 0, slideY = 0, bobAmp = 7 }) {
+  if (t < tIn || t > tOut) { el.style.opacity = 0; return; }
+  const appear = clamp((t - tIn) / popDur);
+  const leave = clamp((t - (tOut - outDur)) / outDur);
+  const s = (from + (1 - from) * back(appear)) * (1 - 0.12 * easeIn(leave));
+  const bob = bobAmp * Math.sin((t - tIn) * 2.6 + floatPhase);
+  const r = rot * (0.5 + 0.5 * back(appear)) + 1.2 * Math.sin((t - tIn) * 1.7 + floatPhase) * (rot ? 1 : 0);
+  el.style.opacity = clamp(appear * 3) * (1 - easeIn(leave));
+  el.style.transform = `translate(${slide * (1 - back(appear))}px, ${bob + slideY * (1 - back(appear))}px) rotate(${r}deg) scale(${s})`;
+}
+
+function render(t) {
+  const P = window.PLAN;
+  place(document.getElementById('hook'), P.hookIn, P.hookOut, t, { from: 0.8, slideY: 40, popDur: 0.4, outDur: 0.3, bobAmp: 0 });
+
+  place(document.getElementById('cta'), P.ctaIn, P.ctaOut, t, { from: 0.8, slideY: 40, popDur: 0.4, outDur: 0.2, bobAmp: 0 });
+
+  // swipe: móvil pequeño a la izquierda; la grabación avanza mientras él gira los dedos
+  const rec = document.getElementById('rec');
+  const idx = clamp(Math.floor((t - P.recStart) * 30), 0, P.recFrames - 1) + 1;
+  rec.src = window.REC_DIR + 'r_' + String(idx).padStart(3, '0') + '.jpg';
+  place(document.getElementById('phone'), P.swipeIn, P.swipeOut, t, { rot: -5, slide: -60 });
+
+  // duelo: un outfit sobre cada mano abierta y un «VS» entre los dos
+  place(document.getElementById('dl'), P.dlIn, P.duelOut, t, { rot: -5, floatPhase: 0, slide: -60 });
+  place(document.getElementById('dr'), P.drIn, P.duelOut, t, { rot: 5, floatPhase: 1.7, slide: 60 });
+  place(document.getElementById('vs'), P.vsIn, P.duelOut, t, { from: 0.3, popDur: 0.3, bobAmp: 4 });
+}
+</script>
+</body></html>
